@@ -33,11 +33,15 @@ class Cari extends CI_Controller {
             if($detect->isMobile()) { 
                 $mobile_dect = 'mobile';
             }
+            
+            $input_q = $this->security->sanitize_filename($this->input->get('q'));
         
+//            echo $this->security->sanitize_filename($input_q);
+//            exit();
     		$data = array(
-                'result' => $this->Komparase_Model->search_in_blog($this->input->get('q')),
-                'q' =>$this->input->get('q'),
-                'productSerupa' => $this->Komparase_Model->search_in_product($this->input->get('q')),
+                'result' => $this->Komparase_Model->search_in_blog($input_q),
+                'q' =>$input_q,
+                'productSerupa' => $this->Komparase_Model->search_in_product($input_q),
             );
         
 			$this->load->view('public/' . $mobile_dect . '/template/header', $data);
