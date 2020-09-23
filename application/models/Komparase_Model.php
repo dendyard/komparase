@@ -121,4 +121,34 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
     }
     
     
+    public function search_in_blog($str){
+        $sql0 = "SELECT *, 
+                (CASE WHEN (b.review >= 0) THEN b.review
+                      ELSE '0' END) AS review FROM blogpost a LEFT JOIN user_review_blog_total b
+                ON a.id = b.idproduk WHERE
+                LOWER(blogtittle) LIKE Lower('%" . $str . "%') OR 
+                LOWER(blogcontent) LIKE Lower('%" . $str . "%') OR 
+                LOWER(tags) LIKE Lower('%" . $str . "%')
+                ORDER BY inTime DESC LIMIT 5";
+        
+        $query0 = $this->db->query($sql0);
+        $result = $query0->result_array();
+        return $result;
+        
+    }
+    
+    public function search_in_product($str){
+        $sql0 = "SELECT * FROM masterproduct WHERE
+                LOWER(productname) LIKE Lower('%" . $str . "%') OR 
+                LOWER(tags) LIKE Lower('%" . $str . "%') OR 
+                LOWER(excerptproduct) LIKE Lower('%" . $str . "%')
+                ORDER BY inTime DESC LIMIT 5
+                ";
+        
+        $query0 = $this->db->query($sql0);
+        $result = $query0->result_array();
+        return $result;
+        
+    }
+    
 }

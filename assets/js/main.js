@@ -155,9 +155,11 @@ function bandingkan_page(){
     }
 }
 
+
 function bandingkan_single(idph){
     window.open(base_url + 'bandingkan?kat=smartphone&idpro1=' + idph, '_SELF');
 }
+
 
 function bandingkan_artikel(kat,idph){
     window.open(base_url + 'bandingkan?kat=' + kat + '&' + idph, '_SELF');
@@ -165,8 +167,14 @@ function bandingkan_artikel(kat,idph){
 
 
 document.getElementById('searchbox').addEventListener('keydown', function(e){
+    var searchkey = '';
     if (e.key === "Enter") {
-        console.log(e.target.value);
+        searchkey = e.target.value;
+        
+        if (searchkey.trim() != '') {
+            console.log('You search something');
+            window.open(base_url + 'cari?q=' + searchkey, '_SELF');
+        } 
         e.preventDefault();
     }
 });
@@ -177,5 +185,5 @@ function searchMain_komparase(e){
     }
 }
 
-console.log('ver 1.0')
+//console.log('ver 1.0')
 

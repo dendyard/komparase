@@ -5,7 +5,7 @@
 <!--End of Ad Container 160x600 (Left & Right)-->
 <div id='komparase-parent-body'>
     
-    <h1 class="banner-h1">Pencarian : Smartphone Samsung A51</h1>
+    <h1 class="banner-h1">Tidak menemukan artikel/produk yang anda cari</h1>
     
    <div id='container-left' class="sticky">
         <img class="border-1-grey" src="assets/ads/160x600.jpg">
