@@ -1,0 +1,32 @@
+{
+"smartphones" : [
+
+    {"model":"Motorolla Moto E7 Plus", "id":"1002", "img":"https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-e7-plus.jpg"},
+
+    {"model":"Apple iPhone SE (2020)", "id":"1003", "img":"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-se-2020.jpg"},
+
+    {"model":"Xiaomi Poco F2 Pro", "id":"1004", "img":"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f2-pro.jpg"},
+
+    {"model":"Samsung Galaxy A42 5G", "id":"1005", "img":"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a42-5g.jpg"},
+
+    {"model":"Samsung Galaxy A21s", "id":"1006", "img":"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a21s-.jpg"},
+
+    {"model":"Xiaomi Redmi Note 9 Pro", "id":"1006", "img":"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-9-pro-global-.jpg"},
+
+    {"model":"Xiaomi Mi 10 Ultra", "id":"1006", "img":"https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi10-ultra.jpg"},
+
+    {"model":"Samsung Galaxy M51", "id":"1006", "img":"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m51.jpg"},
+
+    {"model":"Oppo Reno4 Pro", "id":"1006", "img":"https://fdn2.gsmarena.com/vv/bigpic/oppo-reno4-pro.jpg"},
+
+    {"model":"Oppo A93", "id":"1006", "img":"https://fdn2.gsmarena.com/vv/bigpic/oppo-a93.jpg"},
+
+    {"model":"Apple iPhone 11", "id":"1006", "img":"https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg"},
+
+    {"model":"Realme 7 Pro", "id":"1006", "img":"https://fdn2.gsmarena.com/vv/bigpic/realme-7-pro.jpg"},
+
+    {"model":"Realme 6 Pro", "id":"1006", "img":"https://fdn2.gsmarena.com/vv/bigpic/realme-6-pro.jpg"}
+    
+]
+
+}

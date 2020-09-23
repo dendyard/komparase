@@ -1,0 +1,159 @@
+/*
+Brown : #c7b198
+Blue : #2d4059
+Orange : #ea5455
+*/
+
+.komparase-subtittle {
+    width: 100%;
+    background-image: url(../images/el-3color.png);
+    background-repeat: no-repeat;
+    padding-left: 22px;
+    padding-top: 2px;
+    margin-top: 35px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.pd-5 {
+    padding: 5px;
+}
+
+.pd-10 {
+    padding: 10px;
+}
+
+.pd-right-10 {
+    padding-right: 10px;
+}
+
+.pd-top-30 {
+    padding-top: 30px;
+}
+
+.pd-b-20 {
+    padding-bottom: 20px;
+}
+
+.fs-10 {
+    font-size: 10px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-22 {
+    font-size: 22px;
+}
+
+.fs-30 {
+    font-size: 30px;
+}
+
+.fs-50 {
+    font-size: 50px;
+}
+
+.fw-500 {
+    font-weight: 500;
+    font-weight: bold;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.t-align-left {
+    text-align: left;
+}
+
+.t-align-right {
+    text-align: right;
+}
+
+.t-align-center {
+    text-align: center;
+}
+
+.margin-0{
+    margin: 0;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.col-grid-3 {
+    width: 32%;
+    margin-right: 10px;
+}
+
+.v-separator {
+    position: relative;
+    height: 50px;
+}
+
+.v-separator-30 {
+    position: relative;
+    height: 30px;
+}
+
+.v-separator-10 {
+    position: relative;
+    height: 10px;
+}
+
+.display-inline-block {
+    display: inline-block;
+}
+
+.color-orange {
+    color: #ea5455;
+}
+
+.color-blue {
+    color: #2d4059;
+}
+
+.color-brown {
+    color: #c7b198;
+}
+
+.color-white {
+    color: #fff;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.searchOnList-icon {
+    width: 30px;
+}
+
+.hg-75 {
+    height: 75px;
+}
+
+.border-none {
+    border: none;
+}
+
+.pointer-cursor {
+    cursor: pointer;
+}
+

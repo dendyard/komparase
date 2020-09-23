@@ -1,0 +1,626 @@
+
+body, html {          
+    margin: auto;
+    font-family: 'Raleway', sans-serif;
+    color: #2d4059;
+}
+
+#main {
+        width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-bottom: 8px;
+}
+
+#main-logo {
+    top: 10px;
+    padding: 0 0 0 20px;
+}
+
+#main-logo img {
+    width: 200px;
+}
+
+#main-search {
+    position: absolute;
+    right: 13px;
+    top: 19px;
+}
+
+#main-search input {
+    border: none;
+    background-color: #f0f0f0;
+    width: 300px;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.main-menu {
+    height: 49px;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.menu-container {
+    overflow-x: scroll;
+    background-color: #2d4059;
+    color: #fff;
+}
+
+.menu-container::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-container ul {
+    list-style: none;
+    padding-inline-start: 20px;
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+.menu-container li {
+    padding-right: 20px;
+}
+
+
+.menu-item-cont {
+    color: #fff;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    padding: 0 0px 0 20px;
+    transition: ease-in-out all .15s;
+}
+
+
+.menu-item-cont a {
+    text-decoration: none;
+    color: #2d4059;
+    font-size: 12px;
+}
+
+.main-bg-banner-1 {
+    width: 100%;
+    position: absolute;
+    background-image: url(../images/bannerbg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    background-position: center;
+}
+
+#komparase-parent-body {
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+}
+
+.banner-h1 {
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    color: #c7b198;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-weight: 500;
+    
+}
+.banner-h2 {
+        left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    color: #c7b198;
+    font-size: 14px;
+    font-weight: 100;
+    padding: 0 10px 0 10px;
+}
+
+.border-1-grey {
+    border: solid 1px #f0f0f0;
+}
+
+.border-1-brown {
+    border: solid 1px #c7b198;
+}
+
+.komparasi-tabs {
+    background-color: #fff;
+    margin-top: 60px;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+}
+
+.komparasi-tab-shadows {
+    -webkit-box-shadow: 43px 39px 47px -21px rgba(0,0,0,0.22);
+    -moz-box-shadow: 43px 39px 47px -21px rgba(0,0,0,0.22);
+    box-shadow: 43px 39px 47px -21px rgba(0,0,0,0.22);
+}
+
+.tab {
+        padding: 10px 12px 8px 12px;
+    background-color: #fff;
+    color: #c7b198;
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block
+}
+
+.tab-blur:hover {
+    color: #c7b198;
+    background-color: #2d4059;
+}
+
+.tab-blur {
+    background-color: #c7b198;
+    color: #fff;
+}
+
+#tab-smartphone {
+    top: 60px;
+}
+
+#tab-auto {
+    top: 60px;
+}
+
+#tab-laptop {
+    left: 352px;
+    top: 100px;
+}
+
+
+.col-tab {
+    width: 150px;
+    height: 400px;
+    margin-top: 50px;
+    position: relative;
+    padding: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: inline-block;
+}
+
+.col-kom-tittle {
+        position: absolute;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: #2d4059;
+    font-size: 14px;
+    font-weight: bold;
+    left: 0;
+}
+
+.col-kom-search-box {
+        position: absolute;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    margin-top: 28px;
+    width: 150px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    height: 320px;
+    left: 0;
+}
+
+.col-kom-search-box input {
+        border: none;
+    width: 133px;
+    padding: 7px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.col-kom-search-icon {
+        position: absolute;
+    right: 12px;
+    margin-top: 40px;
+}
+
+.col-kom-info {
+    position: absolute;
+    top: 87px;
+    font-size: 7px;
+    text-align:left;
+}
+
+.info {
+    background-color: #d3d4d4;
+    padding: 3px 7px 3px 7px;
+    border-radius: 100%;
+    color: #a0a0a0;
+}
+
+.col-content {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+}
+
+.col-content img{
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    top: 138px;
+}
+
+.komp-button {
+    position: relative;
+    bottom: 18px;
+    background-color: #2d4059;
+    color: #c7b198;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    padding: 13px 50px 13px 50px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+#product-populer-section {
+    
+    background-image: url(../images/el-3color.png);
+    background-repeat: no-repeat;
+    padding-left: 22px;
+    padding-top: 2px;
+    margin-top: 35px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+#ringkasan-produk-section {
+    width: 975px;
+    background-image: url(../images/el-3color.png);
+    background-repeat: no-repeat;
+    padding-left: 22px;
+    padding-top: 2px;
+    margin-top: 35px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+
+#produk-populer-slide-container {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+
+#search-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#produk-populer-slide-container::-webkit-scrollbar {
+  display: none;
+}
+
+#ringkasan-produk-content{
+    position: relative;
+    width: 100%;
+}
+
+.card-komparase {
+        width: 250px;
+    height: 250px;
+    border: solid 1px #c7b198;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.card-footer-komparase {
+    float: right;
+    color: #c7b198;
+}
+
+.comment-number {
+    padding-top: 2px;
+    float: right;
+    padding-right: 3px;
+    padding: 3px;
+}
+
+.card-excerpt-komparase {
+    white-space: break-spaces;
+}
+
+.kom-ads-300x250 {
+    width: 100%;
+    text-align: center;
+}
+
+.grid-komp table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 5px #2d4059;
+}
+
+.grid-komp thead {
+    background-color: #2d4059;
+    color: #c7b198;
+}
+
+.grid-komp th {
+    padding:10px 10px 10px 0px;
+    
+}
+
+.table-pad {
+    padding: 10px 5px 10px 0px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.top10pro-container {
+    padding: 0 20px 0 20px;
+}
+
+.col-kom-search-box-result {
+    position: absolute;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    margin-top: 28px;
+    width: 150px;
+    background-color: #ea5455;
+    padding: 10px;
+    height: 50px;
+    left: 0;
+}
+
+.col-kom-search-box-result input {
+        border: none;
+    width: 133px;
+    padding: 7px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.kom-result {
+        position: relative;
+    padding: 10px;
+    background-color: #2d4059;
+    color: #c7b198;
+    top: 134px;
+}
+
+.col-content-result {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+}
+
+.col-content-result img {
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: relative;
+    top: 120px;
+}
+
+#ringkasan-produk-section {
+    width: 90%;
+    background-image: url(../images/el-3color.png);
+    background-repeat: no-repeat;
+    /* padding-left: 22px; */
+    padding-top: 2px;
+    margin-top: 35px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.ringkasan-produk{
+    background-color: #2d4059;
+    padding: 4px;
+    font-size: 10px;
+    color: #c7b198;
+}
+
+#spec-product-kom {
+    position: relative;
+    width: 100%;
+}
+
+.spec-pr{
+    width: 100%;
+}
+
+.tab-icon {
+    width: 50px;
+}
+
+.small-pro-icon {
+    width: 25px;
+}
+
+
+.cw-tbl-spec-0 {
+    width: 300px;
+    background-color: #2d4059;
+    color: #c7b198;
+}
+
+.cw-tbl-spec-1 {
+    width: 250px;
+    border: solid 2px #f2f2f2;
+    padding-top: 20px;
+}
+
+#ahli-product-kom {
+    position: relative;
+    width: 100%;
+}
+
+.header-blok {
+    position: relative;
+    height: 50px;
+    background-color: #2d4059;
+    color: #c7b198;
+    padding: 30px 10px 0px 10px;   
+}
+
+.review-grid {
+        display: grid;
+    grid-template-columns: min-content 75%;
+    grid-column-gap: 10px;
+    border: solid 2px #2d4059;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.main-info {
+        display: grid;
+    grid-template-columns: min-content 75%;
+    grid-column-gap: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+
+.review-grid-pro-photo {
+    width: 55px;
+    text-align: center;
+    vertical-align: top;
+    background-color: #ea5455;
+    padding: 5px;
+}
+
+.left-main-info {
+    width: 10px;
+    text-align: center;
+    vertical-align: top;
+    padding-right: 5px;
+    
+    background-image: url(../images/el-3color-bg.png);
+    background-repeat: repeat-y;
+    
+}
+
+
+
+.review-grid-pro-comment {
+        width: 100%;
+    
+}
+
+.review-grid-pro-comment p{
+        padding: 10px;
+    
+}
+
+
+.link-read-more {
+    color: #ea5455;
+    font-size: 10px;
+}
+
+.review-container {
+    width: 100%;
+}
+
+
+.product-single-tittle {
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+.produk-single-price {
+    width: 265px;
+    text-align: center;
+    background-color: #2d4059;
+    color: #c7b198;
+    padding: 10px;
+    margin: 30px auto;
+}
+
+.produk-single-score {
+    margin-left: 22px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    width: 100px;
+    text-align: center;
+}
+
+.produk-single-star {
+    
+}
+
+.rating-star {
+    
+}
+
+.rating-star ul {
+    list-style: none;
+    display: inline-flex;
+    padding-inline-start: 0;
+}
+
+.rating-star img {
+    padding: 0 2px 0 2px;
+}
+
+
+.rating-grid {
+    display: grid;
+    grid-template-columns: max-content min-content;
+    grid-column-gap: 20px;
+}
+
+.card-search {
+    margin: auto;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.tags ul {
+    list-style: none;
+    display: inline-flex;
+    padding: 0;
+    font-size: 10px;
+}
+
+.tags li {
+    background-color: #2d4059;
+    padding: 5px;
+    margin-right: 2px;
+    color: #c7b198;
+}
+
+.card-search-content {
+    padding: 0 10px 0 10px;
+}
+
+.comment-number {
+    padding-top: 2px;
+    float: right;
+    padding-right: 3px;
+    padding: 3px;
+}
+
+.card-search-komparase {
+    text-align: right;
+    color: #c7b198;
+    position: relative;
+    padding-bottom: 10px;
+}
