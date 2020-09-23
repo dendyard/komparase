@@ -162,5 +162,20 @@ function bandingkan_single(idph){
 function bandingkan_artikel(kat,idph){
     window.open(base_url + 'bandingkan?kat=' + kat + '&' + idph, '_SELF');
 }
+
+
+document.getElementById('searchbox').addEventListener('keydown', function(e){
+    if (e.key === "Enter") {
+        console.log(e.target.value);
+        e.preventDefault();
+    }
+});
+
+function searchMain_komparase(e){
+    if (e.keyCode == 13){
+        console.log('Hello enter');
+    }
+}
+
 console.log('ver 1.0')
 

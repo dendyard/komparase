@@ -28,7 +28,7 @@
     </div>
     <div id='main-search'>
         <input placeholder="Cari artikel/produk favorit kamu"
-                                 type="search" class="search-main" id='searchbox'>
+                                 type="text" class="search-main" id='searchbox'>
     </div>
 </div>
     
