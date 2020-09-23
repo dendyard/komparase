@@ -138,10 +138,11 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
     }
     
     public function search_in_product($str){
+        $q = html_entity_decode($str);
         $sql0 = "SELECT * FROM masterproduct WHERE
-                LOWER(productname) LIKE Lower('%" . $str . "%') OR 
-                LOWER(tags) LIKE Lower('%" . $str . "%') OR 
-                LOWER(excerptproduct) LIKE Lower('%" . $str . "%')
+                LOWER(productname) LIKE Lower('%" . $q . "%') OR 
+                LOWER(tags) LIKE Lower('%" . $q . "%') OR 
+                LOWER(excerptproduct) LIKE Lower('%" . $q . "%')
                 ORDER BY inTime DESC LIMIT 5
                 ";
         

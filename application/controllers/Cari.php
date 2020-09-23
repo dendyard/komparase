@@ -22,10 +22,10 @@ class Cari extends CI_Controller {
 	{
 		parent::__construct();
 		
-//        $this->load->model('Komparase_Model');
+        $this->load->model('Komparase_Model');
 	}
 	
-	public function index()
+	public function index($kat = 'smartphone')
 	{
             $mobile_dect = 'desktop';  
             $detect = new Mobile_Detect;
@@ -34,8 +34,12 @@ class Cari extends CI_Controller {
                 $mobile_dect = 'mobile';
             }
         
-    		
-			$this->load->view('public/' . $mobile_dect . '/template/header');
+    		$data = array(
+                'result' => $this->Komparase_Model->search_in_blog($this->input->get('q')),
+                'q' =>$this->input->get('q'),
+            );
+        
+			$this->load->view('public/' . $mobile_dect . '/template/header', $data);
         	$this->load->view('public/' . $mobile_dect . '/pages/search-page');
         	$this->load->view('public/' . $mobile_dect . '/template/footer');
     }
