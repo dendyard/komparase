@@ -448,6 +448,10 @@ Orange : #ea5455
     width: 300px;
 }
 
+.card-article-img img { 
+    width: 100%;
+}
+
 .card-article-tittle {
     padding-bottom: 20px;
 }

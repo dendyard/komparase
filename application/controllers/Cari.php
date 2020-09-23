@@ -37,6 +37,7 @@ class Cari extends CI_Controller {
     		$data = array(
                 'result' => $this->Komparase_Model->search_in_blog($this->input->get('q')),
                 'q' =>$this->input->get('q'),
+                'productSerupa' => $this->Komparase_Model->search_in_product($this->input->get('q')),
             );
         
 			$this->load->view('public/' . $mobile_dect . '/template/header', $data);

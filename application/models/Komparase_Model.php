@@ -122,13 +122,14 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
     
     
     public function search_in_blog($str){
+        $q = html_entity_decode($str);
         $sql0 = "SELECT *, 
                 (CASE WHEN (b.review >= 0) THEN b.review
                       ELSE '0' END) AS review FROM blogpost a LEFT JOIN user_review_blog_total b
                 ON a.id = b.idproduk WHERE
-                LOWER(blogtittle) LIKE Lower('%" . $str . "%') OR 
-                LOWER(blogcontent) LIKE Lower('%" . $str . "%') OR 
-                LOWER(tags) LIKE Lower('%" . $str . "%')
+                LOWER(blogtittle) LIKE Lower('%" . $q . "%') OR 
+                LOWER(blogcontent) LIKE Lower('%" . $q . "%') OR 
+                LOWER(tags) LIKE Lower('%" . $q . "%')
                 ORDER BY inTime DESC LIMIT 5";
         
         $query0 = $this->db->query($sql0);

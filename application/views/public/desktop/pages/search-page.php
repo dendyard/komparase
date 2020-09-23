@@ -4,7 +4,11 @@
     
 <!--End of Ad Container 160x600 (Left & Right)-->
 <div id='komparase-parent-body'>
-    
+    <!--Ad Container 970x250 (Billboard)-->
+    <div class="kom-ads-970x250">
+        <img class="border-1-grey" src="assets/ads/970x250.jpg">
+    </div>
+<!--End of Ad Container 970x250 (Billboard)-->
     <h1 class="banner-h1">
         
         <?php 
@@ -60,6 +64,8 @@
         
         <?php } ?>
         
+        
+        
     </div>
     
     <div id='artikel-container-right'>
@@ -78,5 +84,28 @@
     </div>
     
 <!--End of Artikel-->
+<div class="v-separator"></div> 
 
+    
+<!-- Produk Serupa -->
+    <div id='product-populer-section'>
+      Produk Serupa
+    </div>
+    
+    <div id='produk-populer-slide-container'>
+        <?php 
+            foreach ($productSerupa as $pl) {
+        ?>
+        <a href="<?=base_url() . 'produk/read/' . $pl['slug']?>">
+        <div class="card-komparase border-none t-align-center">
+            <div class="card-img-komparase-product"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-date-komparase pd-5 fs-10"></div>
+            <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['productname']?></div>
+            
+        </div>
+        </a>
+        <?php } ?>
+        
+    </div>
+<!-- End of Produk Serupa   -->
 </div>
