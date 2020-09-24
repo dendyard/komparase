@@ -390,10 +390,13 @@
             } 
         }else{
             ?>
+            <?php 
+                if (sizeOf($prod2) > 0) {
+            ?>
             <div class="card-komparase-blank-fluid t-align-center">
                 <div class="card-excerpt-komparase pd-5 fs-14">Belum ada review dari ahli kami untuk produk :&nbsp;<?=$prod2['productname']?></div>
             </div>
-        
+            <?php } ?>
         <?php
         } ?>
         
@@ -458,11 +461,15 @@
         }else{
             
             ?>
+        <?php 
+                if (sizeOf($prod2) > 0) {
+            ?>
             <div class="card-komparase-blank-fluid t-align-center">
                 <div class="card-excerpt-komparase pd-5 fs-14">Belum ada opini dari kostumer untuk produk :&nbsp;<?=$prod2['productname']?></div>
             </div>
         
         <?php
+                }
         }
         
         ?>
