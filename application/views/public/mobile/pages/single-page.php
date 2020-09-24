@@ -9,7 +9,8 @@
     <h2 class="banner-h2">Smartphone, Automotive, Cities, Books, Travels, Movies and many more...</h2>
     </div>
     <div class="tab" id='tab-smartphone'>Smartphone</div>
-    <div class="tab tab-blur" id='tab-auto'>Automotive</div>
+    <div class="tab tab-blur" id='tab-auto' 
+         onclick="bandingkan_single(<?=$mainData['id']?>)">Bandingkan</div>
 <!--
     
     <div class="tab tab-blur" id='tab-laptop'>Laptop</div>
@@ -18,13 +19,13 @@
     <div class="komparasi-tabs">
         <div class='product-single pd-top-30'>
             <div class="slide-image">
-                <img src="assets/artikel/samsung-galaxy-a21-r.png" class="blank-kom-img">
+                <img src="<?=$mainData['imagefeature']?>" class="blank-kom-img">
                 
             </div>
         </div>
         
             <p class="product-single-tittle color-blue fs-30 t-align-center">
-                Samsung Galaxy A51
+                <?=$mainData['productname']?>
             </p>
             
         
@@ -52,7 +53,7 @@
         </div>
         
         <div class="produk-single-price font-poppins">
-                IDR. 4.500.000
+                <?='IDR ' . number_format($mainData['price'], '0',',','.')?>
         </div>
         
 
@@ -60,26 +61,35 @@
             <div class="rating-grid mt-30">
                 <div class="produk-single-score font-poppins">
                 
-                    <p class='margin-0'>Excelent</p>
-                    <p class='margin-0 fw-500 fs-50'>4.7</p>
+                    <p class='margin-0'>
+                        <?php
+                            if ($mainData['rating'] >= 0 && $mainData['rating'] < 2){
+                                echo 'Poor';
+                            }elseif ($mainData['rating'] >= 2 && $mainData['rating'] < 3){
+                                echo 'Good';
+                            }elseif ($mainData['rating'] >= 3 && $mainData['rating'] <= 5){
+                                echo 'Excelent';
+                            }
+                        ?>
+                    </p>
+                    <p class='margin-0 fw-500 fs-50'><?=$mainData['rating']?></p>
                 
                 </div>
             
                 <div class="produk-single-star">
                     <div class="rating-star">
                         <ul>
-                            <li><img src="assets/images/star-full.png"></li>
-                            <li><img src="assets/images/star-full.png"></li>
-                            <li><img src="assets/images/star-full.png"></li>
-                            <li><img src="assets/images/star-half.png"></li>
-                            <li><img src="assets/images/star-empty.png"></li>
-
+                            <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
+                            <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
+                            <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
+                            <li><img src="<?=base_url()?>assets/images/star-half.png"></li>
+                            <li><img src="<?=base_url()?>assets/images/star-empty.png"></li>
                         </ul>
                     </div>
 
                     <div class="rating-review t-align-left">
-                        <p class="margin-0 font-poppins fs-14"><img src='assets/images/comment.png' class='review-bubble'> 1,550 Review</p>
-                        <p class="margin-0 font-poppins fs-14"><img src='assets/images/comment.png' class='review-bubble'> 3,714 Komentar</p>
+                        <p class="margin-0 font-poppins fs-14"><img src='<?=base_url()?>assets/images/comment.png' class='review-bubble'> 550 Review</p>
+                        <p class="margin-0 font-poppins fs-14"><img src='<?=base_url()?>assets/images/comment.png' class='review-bubble'> 33 Komentar</p>
                     </div>
 
 
@@ -100,13 +110,13 @@
     
     <div id='ringkasan-produk-content' class="pd-b-20">
        
-        <p class="fs-14 pd-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        <p class="fs-14 pd-10"><?=$mainData['blogproduct']?></p>
         
        
     </div>
 <!-- End of Komparasi Pilihan   -->
     <div class="kom-ads-300x250">
-        <img class="border-1-grey" src="assets/ads/300x250.gif">
+        <img class="border-1-grey" src="<?=base_url()?>assets/ads/300x250.gif">
     </div>
 <!--Spec Tech-->
     <div id="spec-product-kom">
@@ -114,13 +124,10 @@
             <thead>
                 <th class='cw-tbl-spec-0 t-align-left pd-5'>Spesifikasi Teknis</th>
                 <th class='cw-tbl-spec-1 t-align-center'>
-                    <img src="assets/artikel/samsung-galaxy-a21-r.png" class="tab-icon">
-                    <p>Samsung Galaxy A21</p>
+                    <img src="<?=$mainData['imagefeature']?>" class="tab-icon">
+                    <p><?=$mainData['productname']?></p>
                 </th>
-                <th class='cw-tbl-spec-1 t-align-center '>
-                    <img src="assets/artikel/samsung-galaxy-a21s-.png" class="tab-icon">
-                    <p>Samsung Galaxy A21</p>
-                </th>
+                
                 
                 
             </thead>
@@ -129,7 +136,7 @@
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    <td class='t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
+                   
                     
 
                 </tr>
@@ -137,15 +144,12 @@
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    <td class='t-align-left fs-14 pd-10'>PLS TFT capacitive touchscreen, 16M colors</td>
-                    
-                    
+                   
                 </tr>
 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    <td class='t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
                     
                     
                 </tr>
@@ -153,15 +157,12 @@
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    <td class='t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
                     
-
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    <td class='t-align-left fs-14 pd-10'>PLS TFT capacitive touchscreen, 16M colors</td>
                     
                     
                 </tr>
@@ -169,47 +170,36 @@
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    <td class='t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
                     
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    <td class='t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
                     
-
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    <td class='t-align-left fs-14 pd-10'>PLS TFT capacitive touchscreen, 16M colors</td>
-                    
                     
                 </tr>
 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    <td class='t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
                     
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    <td class='t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
                     
-
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    <td class='t-align-left fs-14 pd-10'>PLS TFT capacitive touchscreen, 16M colors</td>
                     
                     
                 </tr>
@@ -217,104 +207,78 @@
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    <td class='t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
                     
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    <td class='t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
                     
-
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    <td class='t-align-left fs-14 pd-10'>PLS TFT capacitive touchscreen, 16M colors</td>
-                    
                     
                 </tr>
 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    <td class='t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
                     
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    <td class='t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
                     
-
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    <td class='t-align-left fs-14 pd-10'>PLS TFT capacitive touchscreen, 16M colors</td>
-                    
                     
                 </tr>
 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    <td class='t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
                     
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    <td class='t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
                     
-
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    <td class='t-align-left fs-14 pd-10'>PLS TFT capacitive touchscreen, 16M colors</td>
-                    
                     
                 </tr>
 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    <td class='t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
                     
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    <td class='t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
                     
-
                 </tr>
                 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    <td class='t-align-left fs-14 pd-10'>PLS TFT capacitive touchscreen, 16M colors</td>
-                    
                     
                 </tr>
 
                 <tr>
                     <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
                     <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    <td class='t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
                     
                 </tr>
                 
@@ -331,37 +295,34 @@
     </div>
     <div class="v-separator-30"></div>
     <div class="review-container">
+        <?php 
+        if (sizeOf($reviewAhli) > 0) {
+            foreach ($reviewAhli as $ahli) {
+         ?>
         <div class='review-grid'>
             <div class="review-grid-pro-photo">
-                <img src="assets/images/pro-pic.png" />
+                <img src="<?=($ahli['photo'] == '' ? 'assets/images/default-avatar.jpg': $ahli['photo'])?>" />
                 <p class="margin-0 color-white">Skor</p>
                 <p class="margin-0 color-white">8.9</p>
             </div>
             <div class="review-grid-pro-comment fs-14">
-                
-                <p>Flip Camera is an entire brand in itself in Zenfone world and we don't blame Asus for making a big deal out of it. This year, the whirring apparatus has grown in size to accommodate a telephoto cam (3x optical zoom, the specs say) in addition to the main and ultra-wide units.<br><br>
-
-                <a href="#" class="link-read-more">Baca selengkapnya</a>       
-                </p>
-            </div>
-        </div>
-        <div class='review-grid'>
-            <div class="review-grid-pro-photo">
-                <img src="assets/images/pro-pic.png" />
-                <p class="margin-0 color-white">Skor</p>
-                <p class="margin-0 color-white">8.9</p>
-            </div>
-            <div class="review-grid-pro-comment fs-14">
-                
                 
                 <p>
-                    
-                    Flip Camera is an entire brand in itself in Zenfone world and we don't blame Asus for making a big deal out of it. This year, the whirring apparatus has grown in size to accommodate a telephoto cam (3x optical zoom, the specs say) in addition to the main and ultra-wide units.<br><br>
-
-                <a href="#" class="link-read-more">Baca selengkapnya</a>       
+                    <?=(strlen($ahli['reviewcontent']) > 250 ? substr($ahli['reviewcontent'],0,250) . '... <br><a href="#" class="link-read-more">Baca selengkapnya</a>' : $ahli['reviewcontent']);?> 
                 </p>
             </div>
         </div>
+        <?php 
+            } 
+        }else{
+            ?>
+            <div class="card-komparase-blank t-align-center">
+                <div class="card-excerpt-komparase pd-5 fs-14">Belum review dari ahli kami</div>
+            </div>
+        <?php
+        } 
+        
+        ?>
         
     </div>
 <!-- End of Review dari Ahli -->
@@ -372,38 +333,34 @@
     </div>
     <div class="v-separator-30"></div>
     <div class="review-container">
+        <?php 
+        if (sizeOf($reviewUser) > 0) {
+            foreach ($reviewUser as $ahli) {
+         ?>
         <div class='review-grid'>
             <div class="review-grid-pro-photo">
-                <img src="assets/images/pro-pic.png" />
+                <img src="<?=($ahli['photo'] == '' ? 'assets/images/default-avatar.jpg': $ahli['photo'])?>" />
                 <p class="margin-0 color-white">Skor</p>
                 <p class="margin-0 color-white">8.9</p>
             </div>
             <div class="review-grid-pro-comment fs-14">
-                
-                <p>Flip Camera is an entire brand in itself in Zenfone world and we don't blame Asus for making a big deal out of it. This year, the whirring apparatus has grown in size to accommodate a telephoto cam (3x optical zoom, the specs say) in addition to the main and ultra-wide units.<br><br>
-
-                <a href="#" class="link-read-more">Baca selengkapnya</a>       
-                </p>
-            </div>
-        </div>
-        <div class='review-grid'>
-            <div class="review-grid-pro-photo">
-                <img src="assets/images/pro-pic.png" />
-                <p class="margin-0 color-white">Skor</p>
-                <p class="margin-0 color-white">8.9</p>
-            </div>
-            <div class="review-grid-pro-comment fs-14">
-                
-                
+                <p class="ringkasan-produk"><?=$prod1['productname']?></p>
                 <p>
-                    
-                    Flip Camera is an entire brand in itself in Zenfone world and we don't blame Asus for making a big deal out of it. This year, the whirring apparatus has grown in size to accommodate a telephoto cam (3x optical zoom, the specs say) in addition to the main and ultra-wide units.<br><br>
-
-                <a href="#" class="link-read-more">Baca selengkapnya</a>       
+                    <?=(strlen($ahli['commentcontent']) > 250 ? substr($ahli['commentcontent'],0,250) . '... <br><a href="#" class="link-read-more">Baca selengkapnya</a>' : $ahli['commentcontent']);?> 
                 </p>
             </div>
         </div>
+        <?php 
+            } 
+        }else{
+            ?>
+            <div class="card-komparase-blank t-align-center">
+                <div class="card-excerpt-komparase pd-5 fs-14">Belum ada opini dari kostumer</div>
+            </div>
+        <?php
+        } 
         
+        ?>
     </div>
 <!-- End of Comment -->
     
@@ -413,35 +370,32 @@
     </div>
     
     <div id='produk-populer-slide-container'>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
+        <?php 
+        if (sizeOf($productSerupa) > 0) {
+            foreach ($productSerupa as $pl) {
+        ?>
+            <a href="<?=base_url() . 'produk/read/' . $pl['slug']?>">
+            <div class="card-komparase border-none t-align-center">
+                <div class="card-img-komparase-product"><img src="<?=$pl['imagefeature']?>"></div>
+                <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['productname']?></div>
+
+            </div>
+            </a>
+        <?php 
+            } 
+        }else{
+            ?>
+            <div class="card-komparase border-none t-align-center">
+                <div class="card-excerpt-komparase pd-5 fs-14">Tidak ada produk serupa</div>
+            </div>
+        <?php
+        }
+        ?>
     </div>
 <!-- End of Produk Pilihan   -->
     
     <div class="kom-ads-300x250">
-        <img class="border-1-grey" src="assets/ads/300x250.gif">
+        <img class="border-1-grey" src="<?=base_url();?>assets/ads/300x250.gif">
     </div>
     
     
@@ -451,35 +405,27 @@
     </div>
     
     <div id='produk-populer-slide-container'>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Samsung Atau Iphone? Yuk lihat perbandingannya.</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
+        <?php 
+            foreach ($komparasiPilihan as $pl) {
+                $idphs = '&idpro1=' . $pl['idkompro1'];
+                if ($pl['idkompro2'] <> ''){
+                    $idphs .= '&idpro2=' . $pl['idkompro2'];    
+                }
+                if ($pl['idkompro3'] <> ''){
+                    $idphs .= '&idpro3=' . $pl['idkompro3'];    
+                }
+        ?>
+        <div class="card-komparase pointer-cursor" onclick="bandingkan_artikel('smartphone', '<?=$idphs?>')">
+            <div class="card-img-komparase"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-date-komparase pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
+            <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['blogtittle']?></div>
         </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Samsung Atau Iphone? Yuk lihat perbandingannya.</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Samsung Atau Iphone? Yuk lihat perbandingannya.</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Samsung Atau Iphone? Yuk lihat perbandingannya.</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
+        <?php } ?>
     </div>
 <!-- End of Komparasi Populer   -->
     
     <div class="kom-ads-300x250">
-        <img class="border-1-grey" src="assets/ads/320x50.gif">
+        <img class="border-1-grey" src="<?=base_url();?>assets/ads/320x50.gif">
     </div>
     
 <!--  Artikel -->
@@ -488,30 +434,18 @@
     </div>
     
     <div id='produk-populer-slide-container'>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
+        <?php 
+        foreach ($artikelPilihan as $pl) {
+        ?>
+        <div class="card-komparase-artikel">
+            <div class="card-img-komparase-artikel"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-date-komparase-artikel pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
+            <div class="card-excerpt-komparase-artikel pd-5 fs-14"><?=$pl['blogtittle']?></div>
+            
+            <div class="card-footer-komparase-artikel fs-10"><img src="<?=base_url();?>assets/images/comment.png"> <div class="comment-number">4</div></div>
         </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
+        
+        <?php } ?>
     </div>
 <!-- End of Artikel   -->
 <!--    Top 10 Smartphone -->

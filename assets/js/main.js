@@ -185,5 +185,15 @@ function searchMain_komparase(e){
     }
 }
 
+function showSearchBox(){
+    document.getElementById('float-search').style.display = 'block';
+    document.getElementById('searchbox').focus();
+}
+
+function closeSearch(){
+    document.getElementById('searchbox').value = '';
+    document.getElementById('float-search').style.display = 'none';
+}
+
 //console.log('ver 1.0')
 

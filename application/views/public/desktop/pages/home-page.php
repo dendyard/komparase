@@ -64,7 +64,8 @@
         <div class="col-tab">
         <div class="col-kom-tittle">Bandingkan dengan :</div>
             <div class="col-kom-search-box">
-                <input type="text" onkeyup="searchOnList('searchPhone2', 'stable-2')" id='searchPhone2'></div>
+                <input type="text" onkeyup="searchOnList('searchPhone2', 'stable-2')" id='searchPhone2'>
+            </div>
             <img src="assets/images/loop-brown.png" class="col-kom-search-icon" />
             <div class="col-kom-info">
             <span class="info">i</span> Masukkan Merk/Model Smartphone

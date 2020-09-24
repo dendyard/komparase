@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Komparase.com</title>    
+<title>Komparase.com</title>
 <link rel="icon" type="image/png" sizes="20x20" href="<?=base_url()?>favicon2.ico">
 
 <meta name="msapplication-TileColor" content="#c7b198">

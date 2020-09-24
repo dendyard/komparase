@@ -15,31 +15,45 @@
     <div class="tab tab-blur" id='tab-laptop'>Laptop</div>
     
 -->
+    <div id='tbsrc1-container'>
+        <table id="stable-1"></table>
+    </div>
+    <div id='tbsrc2-container'>
+        <table id="stable-2"></table>
+    </div>
+    <div id='tbsrc3-container'>
+        <table id="stable-3"></table>
+    </div>
+    
     <div class="komparasi-tabs komparasi-tab-shadows">
         <div class="col-tab">
             <div class="col-kom-tittle">Bandingkan dengan :</div>
-            <div class="col-kom-search-box"><input type="text"></div>
+            <div class="col-kom-search-box">
+                <input type="text" onkeyup="searchOnList('searchPhone1', 'stable-1')" id='searchPhone1'>
+            </div>
             
             <div class="col-kom-info">
                 <span class="info">i</span> Masukkan Merk/Model Smartphone
             </div>
            <div class="col-content">
-                <img src="assets/images/blank-kom.png" class="blank-kom-img">
+                <img id='iconPhoneSelect-1' src="assets/images/blank-kom.png" class="blank-kom-img">
             </div>
         </div>
         <div class="col-tab">
         <div class="col-kom-tittle">Bandingkan dengan :</div>
-            <div class="col-kom-search-box"><input type="text"></div>
+            <div class="col-kom-search-box">
+                <input type="text" onkeyup="searchOnList('searchPhone2', 'stable-2')" id='searchPhone2'>
+            </div>
         
             <div class="col-kom-info">
             <span class="info">i</span> Masukkan Merk/Model Smartphone
             </div>
             <div class="col-content">
-                <img src="assets/images/blank-kom.png" class="blank-kom-img">
+                <img id='iconPhoneSelect-2' src="assets/images/blank-kom.png" class="blank-kom-img">
             </div>
         </div>
         <div>
-        <button class="komp-button">Lihat Komparasi</button>
+        <button class="komp-button" onclick='bandingkan_page()'>Lihat Komparasi</button>
             </div>
     </div>
  
@@ -49,30 +63,19 @@
     </div>
     
     <div id='produk-populer-slide-container'>
+        <?php 
+            foreach ($productPilihan as $pl) {
+        ?>
         <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
+            <div class="card-img-komparase"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-date-komparase pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
+            <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['blogtittle']?></div>
+            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number"><?=$pl['review']?></div></div>
         </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
+        <?php } ?>
+        
+        
+        
     </div>
 <!-- End of Produk Pilihan   -->
     
@@ -86,31 +89,26 @@
       Komparasi Populer
     </div>
     
+    
+    
     <div id='produk-populer-slide-container'>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
+        <?php 
+            foreach ($komparasiPilihan as $pl) {
+                $idphs = '&idpro1=' . $pl['idkompro1'];
+                if ($pl['idkompro2'] <> ''){
+                    $idphs .= '&idpro2=' . $pl['idkompro2'];    
+                }
+                if ($pl['idkompro3'] <> ''){
+                    $idphs .= '&idpro3=' . $pl['idkompro3'];    
+                }
+        ?>
+        <div class="card-komparase pointer-cursor" onclick="bandingkan_artikel('smartphone', '<?=$idphs?>')">
+            <div class="card-img-komparase"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-date-komparase pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
+            <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['blogtittle']?></div>
         </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
+        <?php } ?>
+        
     </div>
 <!-- End of Komparasi Populer   -->
     
@@ -124,30 +122,18 @@
     </div>
     
     <div id='produk-populer-slide-container'>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
+        <?php 
+        foreach ($artikelPilihan as $pl) {
+        ?>
+        <div class="card-komparase-artikel">
+            <div class="card-img-komparase-artikel"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-date-komparase-artikel pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
+            <div class="card-excerpt-komparase-artikel pd-5 fs-14"><?=$pl['blogtittle']?></div>
+            
+            <div class="card-footer-komparase-artikel fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
         </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
-        <div class="card-komparase">
-            <div class="card-img-komparase"><img src="assets/images/populer/populer.jpg"></div>
-            <div class="card-date-komparase pd-5 fs-10">10 October 2020</div>
-            <div class="card-excerpt-komparase pd-5 fs-14">Smartphone industry sees drastic decline in Q2 2020</div>
-            <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
-        </div>
+        
+        <?php } ?>
     </div>
 <!-- End of Artikel   -->
 <!--    Top 10 Smartphone -->
