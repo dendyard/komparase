@@ -814,5 +814,16 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     padding: 0 20px 0 20px;
 }
 
+.artikel-tittle {
+    background-image: url(../images/el-3color-bg.png);
+    background-repeat: repeat-y;
+    padding-left: 20px;
+}
+
+.artikel-link{
+    color: #000 !important;
+    text-decoration: none;
+}
+
 
 

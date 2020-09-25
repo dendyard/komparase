@@ -67,11 +67,11 @@
                     <p class='margin-0'>
                         <?php
                         
-                        if ($mainData['rating'] > 0 && $mainData['rating'] < 2){
+                        if ($mainData['rating'] >= 0 && $mainData['rating'] < 2){
                             echo 'Poor';
-                        }elseif ($mainData['rating'] > 2 && $mainData['rating'] < 3){
+                        }elseif ($mainData['rating'] >= 2 && $mainData['rating'] < 4){
                             echo 'Good';
-                        }elseif ($mainData['rating'] > 3 && $mainData['rating'] <= 5){
+                        }elseif ($mainData['rating'] >= 4 && $mainData['rating'] <= 5){
                             echo 'Excelent';
                         }
                            
@@ -476,12 +476,16 @@
         foreach ($artikelPilihan as $pl) {
     ?>
         <div class="card-article border-1-brown">
+            <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
             <div class="card-article-img"><img src="<?=$pl['imagefeature']?>"></div>
+            </a>
             <div class="card-article-content">
+                <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
                 <div class="card-article-tittle pd-b-20 fw-500 fs-22"><?=$pl['blogtittle']?></div>
                 <div class="card-article-body fs-14 hg-75">
                 <?=$pl['blogexcerpt']?>
                 </div>
+                </a>
                 <div class="tags">
                     <ul>
                         <?php 

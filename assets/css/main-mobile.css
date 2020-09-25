@@ -325,6 +325,23 @@ body, html {
     margin-bottom: 20px;
 }
 
+#blog-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.artikel-tittle {
+    background-image: url(../images/el-3color-bg.png);
+    background-repeat: repeat-y;
+    padding-left: 20px;
+}
+
+.artikel-body {
+    padding: 0 10px 0 10px;
+}
+
 #produk-populer-slide-container::-webkit-scrollbar {
   display: none;
 }
@@ -837,4 +854,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 .card-img-komparase-product img {
     width: 100%;
+}
+
+.artikel-link{
+    color: #000 !important;
+    text-decoration: none;
 }

@@ -27,6 +27,10 @@ Orange : #ea5455
     padding-right: 10px;
 }
 
+.pd-left-10 {
+    padding-left: 10px;
+}
+
 .pd-top-30 {
     padding-top: 30px;
 }
@@ -44,6 +48,10 @@ Orange : #ea5455
 }
 
 .fs-22 {
+    font-size: 22px;
+}
+
+.fs-25 {
     font-size: 22px;
 }
 
@@ -157,3 +165,6 @@ Orange : #ea5455
     cursor: pointer;
 }
 
+.wd-100 {
+    width: 100%;
+}

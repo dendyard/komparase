@@ -43,7 +43,18 @@
                 <span class="info">i</span> Masukkan Merk/Model Smartphone
             </div>
            <div class="col-content-result">
+                <?php
+                if (sizeOf($prod1) > 0) {
+                    echo '<a href=' . base_url().'produk/read/'.$prod1['slug'] . '>';    
+                }
+            
+                ?>
                 <img id='iconPhoneSelect-1' src="<?=(sizeOf($prod1)  > 0 ? $prod1['imagefeature']:'assets/images/blank-kom.png')?>" class="blank-kom-img">
+                <?php
+                if (sizeOf($prod1) > 0) {
+                    echo '</a>';
+                }
+                ?>
                <div class="kom-result"><?='IDR ' . number_format($prod1['price'], '0',',','.')?></div>
             </div>
         </div>
@@ -65,7 +76,19 @@
             <span class="info">i</span> Masukkan Merk/Model Smartphone
             </div>
             <div class="col-content-result">
-                <img id='iconPhoneSelect-2' src="<?=(sizeOf($prod2)  > 0 ? $prod2['imagefeature']:'assets/images/blank-kom.png')?>" class="blank-kom-img">
+                <?php
+                if (sizeOf($prod2) > 0) {
+                    echo '<a href=' . base_url().'produk/read/'.$prod2['slug'] . '>';    
+                }
+                ?>
+                
+                <img id='iconPhoneSelect-2' src="<?=(sizeOf($prod2) > 0? $prod2['imagefeature']:'assets/images/blank-kom.png')?>" class="blank-kom-img">
+                
+                <?php
+                if (sizeOf($prod2) > 0) {
+                    echo '</a>';
+                }
+                ?>
                 <?php 
                 if (sizeOf($prod2) > 0) {    
             ?>
@@ -544,11 +567,14 @@
         foreach ($artikelPilihan as $pl) {
         ?>
         <div class="card-komparase-artikel">
+            <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
             <div class="card-img-komparase-artikel"><img src="<?=$pl['imagefeature']?>"></div>
+            
             <div class="card-date-komparase-artikel pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
             <div class="card-excerpt-komparase-artikel pd-5 fs-14"><?=$pl['blogtittle']?></div>
             
             <div class="card-footer-komparase-artikel fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
+                </a>
         </div>
         
         <?php } ?>

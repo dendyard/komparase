@@ -61,12 +61,15 @@ WHERE blogcategory='komparasi-" . $kat . "' AND statusapprove=1  order by intime
         return $result;    
     }
     
-    public function get_artikel_pilihan($kat){
+    public function get_artikel_pilihan($kat, $slug='', $tags=''){
         $sql0 = "SELECT *, 
 (CASE WHEN (b.review >= 0) THEN b.review
       ELSE '0' END) as review FROM blogpost a LEFT JOIN user_review_blog_total b
 ON a.id = b.idproduk
-WHERE blogcategory='blog-" . $kat . "' AND statusapprove=1  order by intime DESC LIMIT 5";   
+WHERE blogcategory='blog-" . $kat . "'" . ($slug <> '' ? " AND slug !='" . $slug . "' " : "") . ($tags <> '' ? " AND (" . $tags . ")" : "") . " AND statusapprove=1  order by intime DESC LIMIT 5";   
+        
+//              echo $sql0;
+//      exit();
         
         $query0 = $this->db->query($sql0);
         $result = $query0->result_array();
@@ -149,8 +152,15 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
         
         $query0 = $this->db->query($sql0);
         $result = $query0->result_array();
-        return $result;
+        return $result;   
+    }
+    
+    public function get_artikel_full($slug){
+        $sql0 = "SELECT * FROM blogpost WHERE slug='" . $slug . "'";   
         
+        $query0 = $this->db->query($sql0);
+        $result = $query0->row_array();
+        return $result; 
     }
     
 }

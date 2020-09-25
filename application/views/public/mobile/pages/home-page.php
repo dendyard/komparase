@@ -67,10 +67,12 @@
             foreach ($productPilihan as $pl) {
         ?>
         <div class="card-komparase">
+            <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
             <div class="card-img-komparase"><img src="<?=$pl['imagefeature']?>"></div>
             <div class="card-date-komparase pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
             <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['blogtittle']?></div>
             <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number"><?=$pl['review']?></div></div>
+            </a>
         </div>
         <?php } ?>
         
@@ -126,11 +128,13 @@
         foreach ($artikelPilihan as $pl) {
         ?>
         <div class="card-komparase-artikel">
+            <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
             <div class="card-img-komparase-artikel"><img src="<?=$pl['imagefeature']?>"></div>
             <div class="card-date-komparase-artikel pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
             <div class="card-excerpt-komparase-artikel pd-5 fs-14"><?=$pl['blogtittle']?></div>
             
             <div class="card-footer-komparase-artikel fs-10"><img src="assets/images/comment.png"> <div class="comment-number">4</div></div>
+            </a>
         </div>
         
         <?php } ?>

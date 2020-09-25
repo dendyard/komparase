@@ -31,17 +31,17 @@ function searchOnList(tbox_name, tb_name, rekom=false) {
   switch(tb_name){
       case 'stable-1':
           tb_container = 'tbsrc1-container';
-          document.getElementById('iconPhoneSelect-1').src = 'assets/images/blank-kom.png';
+          //document.getElementById('iconPhoneSelect-1').src = 'assets/images/blank-kom.png';
           phoneid1 = '';
           break;
       case 'stable-2':
           tb_container = 'tbsrc2-container';
-          document.getElementById('iconPhoneSelect-2').src = 'assets/images/blank-kom.png';
+          //document.getElementById('iconPhoneSelect-2').src = 'assets/images/blank-kom.png';
           phoneid2 = '';
           break;
       case 'stable-3':
           tb_container = 'tbsrc3-container';
-          document.getElementById('iconPhoneSelect-3').src = 'assets/images/blank-kom.png';
+          //document.getElementById('iconPhoneSelect-3').src = 'assets/images/blank-kom.png';
           phoneid3 = '';
           break;
   }
@@ -92,7 +92,6 @@ function pickPhone(tbox_name, phone_pick, ls_img, phone_id){
           phoneid3 = phone_id;       
           break;
     }
-    
     
     
     document.getElementById(tbox_name).value = phone_pick;
@@ -181,7 +180,7 @@ document.getElementById('searchbox').addEventListener('keydown', function(e){
 
 function searchMain_komparase(e){
     if (e.keyCode == 13){
-        console.log('Hello enter');
+        
     }
 }
 

@@ -50,8 +50,18 @@
                 <span class="info">i</span> Masukkan Merk/Model Smartphone
             </div>
             <div class="col-content">
-                
+                <?php
+                if (sizeOf($prod1) > 0) {
+                    echo '<a href=' . base_url().'produk/read/'.$prod1['slug'] . '>';    
+                }
+            
+                ?>
                 <img id='iconPhoneSelect-1' src="<?=(sizeOf($prod1)  > 0 ? $prod1['imagefeature']:'assets/images/blank-kom.png')?>" class="blank-kom-img">
+                <?php
+                if (sizeOf($prod1) > 0) {
+                    echo '</a>';
+                }
+                ?>
             </div>
             <?php 
                 if (sizeOf($prod1)  > 0) {    
@@ -77,7 +87,20 @@
             <span class="info">i</span> Masukkan Merk/Model Smartphone
             </div>
             <div class="col-content">
+                <?php
+                if (sizeOf($prod2) > 0) {
+                    echo '<a href=' . base_url().'produk/read/'.$prod2['slug'] . '>';    
+                }
+                ?>
+                
                 <img id='iconPhoneSelect-2' src="<?=(sizeOf($prod2) > 0? $prod2['imagefeature']:'assets/images/blank-kom.png')?>" class="blank-kom-img">
+                
+                <?php
+                if (sizeOf($prod2) > 0) {
+                    echo '</a>';
+                }
+                ?>
+                
             </div>
         
             <?php 
@@ -106,7 +129,18 @@
             <span class="info">i</span> Masukkan Merk/Model Smartphone
             </div>
             <div class="col-content">
+                <?php
+                if (sizeOf($prod3) > 0) {
+                    echo '<a href=' . base_url().'produk/read/'.$prod3['slug'] . '>';    
+                }
+            
+                ?>
                 <img id='iconPhoneSelect-3' src="<?=(sizeOf($prod3) > 0 ? $prod3['imagefeature']:'assets/images/blank-kom.png')?>" class="blank-kom-img">
+                <?php
+                if (sizeOf($prod3) > 0) {
+                    echo '</a>';
+                }
+                ?>
             </div>
             <?php 
                 if (sizeOf($prod3) > 0) {    
@@ -732,12 +766,16 @@
         foreach ($artikelPilihan as $pl) {
     ?>
         <div class="card-article border-1-brown">
+            <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
             <div class="card-article-img"><img src="<?=$pl['imagefeature']?>"></div>
+            </a>
             <div class="card-article-content">
+                <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
                 <div class="card-article-tittle pd-b-20 fw-500 fs-22"><?=$pl['blogtittle']?></div>
                 <div class="card-article-body fs-14 hg-75">
                 <?=$pl['blogexcerpt']?>
                 </div>
+                </a>
                 <div class="tags">
                     <ul>
                         <?php 
