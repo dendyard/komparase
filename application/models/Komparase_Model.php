@@ -106,7 +106,7 @@ WHERE idproduk = " . $prodid . " AND reviewtype='" . $reviewtype . "' AND b.role
     
     public function get_review_user($reviewtype, $prodid, $limit='2'){
             
-        $sql0 = "SELECT b.displayname, b.photo, a.idusercomment, a.commentcontent, a.skor    
+        $sql0 = "SELECT b.displayname, b.photo, a.id, a.commentcontent, a.skor    
 FROM usercomment a LEFT JOIN masteruser b ON a.userid = b.iduser
 WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.role=3 LIMIT " . $limit;
         
