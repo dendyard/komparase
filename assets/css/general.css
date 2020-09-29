@@ -47,6 +47,11 @@ Orange : #ea5455
     font-size: 14px;
 }
 
+.fs-12 {
+    font-size: 12px;
+}
+
+
 .fs-22 {
     font-size: 22px;
 }
@@ -124,6 +129,9 @@ Orange : #ea5455
     height: 10px;
 }
 
+.v-align-top {
+    vertical-align: top;
+}
 .display-inline-block {
     display: inline-block;
 }
@@ -167,4 +175,17 @@ Orange : #ea5455
 
 .wd-100 {
     width: 100%;
+}
+
+.wd-200 {
+    width: 200px;
+}
+
+.specgroup {
+    color: #ea5455;
+    font-weight: bold;
+}
+
+.hr-spec {
+    color: #ea5455;
 }

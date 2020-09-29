@@ -28,26 +28,28 @@
                 <?=$mainData['productname']?>
             </p>
             
-        
+        <?php $spcjsn = json_decode($mainData['spec']); 
+            
+        ?>
         <div class='main-info'>
             <div class="left-main-info">
                 
             </div>
             <div class="review-grid-pro-comment fs-14 t-align-left font-poppins">
                 <span class="fw-500">Tanggal Release :</span>
-                <span class="fw-300">&nbsp;01-Oktober-2020</span>
+                <span class="fw-300">&nbsp;<?=$spcjsn->rilis->spec->tanggal;?></span>
                 <br>
                     <span class="fw-500">Berat :</span>
-                    <span class="fw-300">&nbsp;192gr, 8.9mm</span>
+                    <span class="fw-300">&nbsp;<?=$spcjsn->body->spec->berat;?></span>
                 <br>
                     <span class="fw-500">OS :</span>
-                    <span class="fw-300">&nbsp;Android 10, One UI 2.0</span>
+                    <span class="fw-300">&nbsp;<?=$spcjsn->platform->spec->os;?></span>
                 <br>
                     <span class="fw-500">RAM :</span>
-                    <span class="fw-300">&nbsp;32GB/64GB storage, microSDXC</span>
+                    <span class="fw-300">&nbsp;<?=$spcjsn->memory->spec->internal;?></span>
                 <br>
                     <span class="fw-500">Layar :</span>
-                    <span class="fw-300">&nbsp;6.5", Resolusi : 720x1600 pxl</span>
+                    <span class="fw-300">&nbsp;<?=$spcjsn->layar->spec->ukuran;?></span>
                 
             </div>
         </div>
@@ -132,158 +134,34 @@
                 
             </thead>
             <tbody>
-                
+                <?php 
+                    
+                    
+                    foreach ($template_spec as $ts) {
+                ?>
                 <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                   
-                    
-
+                    <td class='table-pad t-align-left fs-14 pd-10 v-align-top'><?=$ts['display_name']?></td>
+                    <td class='table-pad t-align-left fs-14 pd-10 v-align-top'>
+                    <?php
+                        if (sizeOf($spcjsn)) {
+                            
+                        
+                        $node = $ts['spec_name'];
+                        $first = true;
+                        
+                        foreach($spcjsn->$node->spec as $key=>$value){
+                            if ($first) {
+                                echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value ;
+                                $first = false;
+                            }else{
+                                echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
+                            }
+                        }
+                        }
+                    ?>
+                    </td>
                 </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                   
-                </tr>
-
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    
-                    
-                </tr>
-
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    
-                </tr>
-
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    
-                    
-                </tr>
-
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    
-                </tr>
-
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    
-                </tr>
-
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    
-                </tr>
-
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Network</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>GSM / HSPA / LTE</td>
-                    
-                </tr>
-                
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Display</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Super AMOLED capacitive touchscreen, 16M colors</td>
-                    
-                </tr>
-
-                <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10'>Screen Size</td>
-                    <td class='table-pad t-align-left fs-14 pd-10'>6.43 inches, 99.8 cm2</td>
-                    
-                </tr>
-                
-                
-
+                <?php } ?>
             </tbody>
         </table>
     </div>

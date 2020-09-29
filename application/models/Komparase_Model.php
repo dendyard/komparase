@@ -123,6 +123,15 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
         return $result; 
     }
     
+    public function get_product_spec_template($kategory) {
+        $sql0 = "SELECT * FROM spec_category WHERE type='" . $kategory . "' order by id";   
+//        echo $sql0;
+//        exit();
+        $query0 = $this->db->query($sql0);
+        $result = $query0->result_array();
+        return $result; 
+    }
+    
     
     public function search_in_blog($str){
         $q = html_entity_decode($str);

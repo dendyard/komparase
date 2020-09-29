@@ -35,8 +35,10 @@
     
     <div class="tab" id='tab-smartphone'>Smartphone</div>
 
+<!--
     <div class="tab tab-blur" id='tab-auto'>Automotive</div>
     <div class="tab tab-blur" id='tab-laptop'>Laptop</div>
+-->
 
     
     <div id='tbsrc1-container'>

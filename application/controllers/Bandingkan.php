@@ -52,6 +52,7 @@ class Bandingkan extends CI_Controller {
             'productSerupa' => $this->Komparase_Model->get_product_serupa($kat, $idProduk1, $idProduk2, $idProduk3),
             'komparasiPilihan' => $this->Komparase_Model->get_komparasi_pilihan($kat),
             'artikelPilihan' => $this->Komparase_Model->get_artikel_pilihan($kat),
+            'template_spec' => $this->Komparase_Model->get_product_spec_template($kat)
         );
         
         if($detect->isMobile()) { 

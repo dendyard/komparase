@@ -49,8 +49,6 @@ class Produk extends CI_Controller {
             $kat = 'smartphone';
         
             $main = $this->Komparase_Model->get_product_main($slug);
-            //echo $main['id'];
-            //exit();
 
             $data = array (
                 'mainData' => $main,
@@ -59,6 +57,7 @@ class Produk extends CI_Controller {
                 'productSerupa' => $this->Komparase_Model->get_product_serupa($kat, $main['id']),
                 'komparasiPilihan' => $this->Komparase_Model->get_komparasi_pilihan($kat),
                 'artikelPilihan' => $this->Komparase_Model->get_artikel_pilihan($kat),
+                'template_spec' => $this->Komparase_Model->get_product_spec_template($kat)
                 
             );
     		

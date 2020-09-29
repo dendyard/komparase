@@ -9,7 +9,7 @@
     <h2 class="banner-h2">Smartphone, Automotive, Cities, Books, Travels, Movies and many more...</h2>
     </div>
     <div class="tab" id='tab-smartphone'>Smartphone</div>
-    <div class="tab tab-blur" id='tab-auto'>Automotive</div>
+<!--    <div class="tab tab-blur" id='tab-auto'>Automotive</div>-->
 <!--
     
     <div class="tab tab-blur" id='tab-laptop'>Laptop</div>

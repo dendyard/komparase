@@ -49,8 +49,6 @@ class Komparase extends CI_Controller {
         $this->load->view('public/' . $mobile_dect . '/template/footer');
     }
     
-    
-    
     public function get_product_list($kat){
         header('Access-Control-Allow-Origin: *');
           
