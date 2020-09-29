@@ -235,8 +235,8 @@
                     <td class='table-pad t-align-left fs-14 pd-10 v-align-top'><?=$ts['display_name']?></td>
                     <td class='t-align-left fs-14 pd-10 v-align-top'>
                         <?php 
-                            
-                            if (sizeOf($projsn1)) {
+                            if (sizeOf($prod1)) {
+                            if ($projsn1 != '') {
                                 
                                 $node = $ts['spec_name'];
                                 $first = true;
@@ -251,13 +251,13 @@
                                 }
                     
                             }
-                        
+                            }
                         ?>
                     </td>
                     <td class='t-align-left fs-14 pd-10 v-align-top'>
                     <?php 
-    
-                            if (sizeOf($projsn2)) {
+                        if (sizeOf($prod2)) {
+                            if ($projsn2 != '') {
                                 
                                 $node = $ts['spec_name'];
                                 $first = true;
@@ -272,14 +272,14 @@
                                 }
                     
                             }
-                        
+                        }
                         ?>
                         
                     </td>
                     <td class='t-align-left fs-14 pd-10 v-align-top'>
                     <?php 
                         if (sizeOf($prod3)) {
-                            if (sizeOf($projsn3)) {
+                            if ($projsn3 != '') {
                                 
                                 $node = $ts['spec_name'];
                                 $first = true;
