@@ -169,7 +169,7 @@
                     <td class='table-pad t-align-left fs-12 pd-10 v-align-top'><?=$ts['display_name']?></td>
                     <td class='table-pad t-align-left fs-12 pd-10 v-align-top'><?php 
                             
-                            if (sizeOf($projsn1)) {
+                            if ($projsn1 != '') {
                                 
                                 $node = $ts['spec_name'];
                                 $first = true;
@@ -188,7 +188,7 @@
                         ?></td>
                     <td class='t-align-left fs-12 pd-10 v-align-top'><?php 
     
-                            if (sizeOf($projsn2)) {
+                            if ($projsn2 != '') {
                                 
                                 $node = $ts['spec_name'];
                                 $first = true;

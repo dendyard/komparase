@@ -146,7 +146,7 @@
                     
                     <td class='table-pad t-align-left fs-14 pd-10 v-align-top'>
                     <?php
-                        if (sizeOf($spcjsn)) {
+                        if ($spcjsn != '') {
                             
                         
                         $node = $ts['spec_name'];
