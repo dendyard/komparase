@@ -83,18 +83,36 @@
                 <div class="produk-single-star">
                     <div class="rating-star">
                         <ul>
-                            <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
-                            <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
-                            <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
-                            <li><img src="<?=base_url()?>assets/images/star-half.png"></li>
-                            <li><img src="<?=base_url()?>assets/images/star-empty.png"></li>
-
+                            <?php
+                                $dec = false;
+                                $rtNonDec = substr($mainData['rating'],0,1);
+                        
+                                if (strpos($mainData['rating'],".")) {
+                                    $dec = true;
+                                }
+                                for ($i = 0; $i < $rtNonDec; $i++) {
+                            ?>
+                                <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
+                            <?php 
+                                } 
+                                if ($dec) { 
+                                    echo "<li><img src=" . base_url() . "assets/images/star-half.png></li>"; 
+                                    for ($i = ($rtNonDec+1); $i < 5; $i++) {
+                                        echo "<li><img src=" . base_url() . "assets/images/star-empty.png></li>"; 
+                                    }
+                                }else{
+                                    for ($i = $rtNonDec; $i < 5; $i++) {
+                                        echo "<li><img src=" . base_url() . "assets/images/star-empty.png></li>"; 
+                                    }
+                                }
+                                
+                            ?>
                         </ul>
                     </div>
 
                     <div class="rating-review ">
-                        <p class="margin-0 font-poppins fs-14"><img src='<?=base_url()?>assets/images/comment.png' class='review-bubble'> 1,550 Review</p>
-                        <p class="margin-0 font-poppins fs-14"><img src='<?=base_url()?>assets/images/comment.png' class='review-bubble'> 3,714 Komentar</p>
+                        <p class="margin-0 font-poppins fs-14"><img src='<?=base_url()?>assets/images/comment.png' class='review-bubble'> <?=sizeof($reviewAhli)?> Review</p>
+                        <p class="margin-0 font-poppins fs-14"><img src='<?=base_url()?>assets/images/comment.png' class='review-bubble'> <?=sizeof($reviewUser)?> Komentar</p>
                     </div>
 
 

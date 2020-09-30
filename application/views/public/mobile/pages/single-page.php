@@ -81,17 +81,36 @@
                 <div class="produk-single-star">
                     <div class="rating-star">
                         <ul>
-                            <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
-                            <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
-                            <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
-                            <li><img src="<?=base_url()?>assets/images/star-half.png"></li>
-                            <li><img src="<?=base_url()?>assets/images/star-empty.png"></li>
+                            <?php
+                                $dec = false;
+                                $rtNonDec = substr($mainData['rating'],0,1);
+                        
+                                if (strpos($mainData['rating'],".")) {
+                                    $dec = true;
+                                }
+                                for ($i = 0; $i < $rtNonDec; $i++) {
+                            ?>
+                                <li><img src="<?=base_url()?>assets/images/star-full.png"></li>
+                            <?php 
+                                } 
+                                if ($dec) { 
+                                    echo "<li><img src=" . base_url() . "assets/images/star-half.png></li>"; 
+                                    for ($i = ($rtNonDec+1); $i < 5; $i++) {
+                                        echo "<li><img src=" . base_url() . "assets/images/star-empty.png></li>"; 
+                                    }
+                                }else{
+                                    for ($i = $rtNonDec; $i < 5; $i++) {
+                                        echo "<li><img src=" . base_url() . "assets/images/star-empty.png></li>"; 
+                                    }
+                                }
+                                
+                            ?>
                         </ul>
                     </div>
 
                     <div class="rating-review t-align-left">
-                        <p class="margin-0 font-poppins fs-14"><img src='<?=base_url()?>assets/images/comment.png' class='review-bubble'> 550 Review</p>
-                        <p class="margin-0 font-poppins fs-14"><img src='<?=base_url()?>assets/images/comment.png' class='review-bubble'> 33 Komentar</p>
+                        <p class="margin-0 font-poppins fs-14"><img src='<?=base_url()?>assets/images/comment.png' class='review-bubble'> <?=sizeof($reviewAhli)?>  Review</p>
+                        <p class="margin-0 font-poppins fs-14"><img src='<?=base_url()?>assets/images/comment.png' class='review-bubble'> <?=sizeof($reviewUser)?> Komentar</p>
                     </div>
 
 
@@ -217,12 +236,11 @@
          ?>
         <div class='review-grid'>
             <div class="review-grid-pro-photo">
-                <img src="<?=($ahli['photo'] == '' ? 'assets/images/default-avatar.jpg': $ahli['photo'])?>" />
+                <img src="<?=($ahli['photo'] == '' ? base_url() . '/assets/images/default-avatar.jpg': $ahli['photo'])?>" />
                 <p class="margin-0 color-white">Skor</p>
                 <p class="margin-0 color-white">8.9</p>
             </div>
             <div class="review-grid-pro-comment fs-14">
-                <p class="ringkasan-produk"><?=$prod1['productname']?></p>
                 <p>
                     <?=(strlen($ahli['commentcontent']) > 250 ? substr($ahli['commentcontent'],0,250) . '... <br><a href="#" class="link-read-more">Baca selengkapnya</a>' : $ahli['commentcontent']);?> 
                 </p>

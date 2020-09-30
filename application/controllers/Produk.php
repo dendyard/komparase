@@ -41,6 +41,7 @@ class Produk extends CI_Controller {
     
     
     public function read($slug='') {
+        
             $mobile_dect = 'desktop';  
             $detect = new Mobile_Detect;
 
