@@ -70,6 +70,18 @@ class Bandingkan extends CI_Controller {
                 'artikelPilihan' => $this->Komparase_Model->get_artikel_pilihan($kat),
                 'template_spec' => $this->Komparase_Model->get_product_spec_template($kat)
             );
+        
+            if (strlen($idProduk1) <> '') {
+                $this->Komparase_Model->counter_product_compare($idProduk1);
+            }
+            if (strlen($idProduk2) <> '') {
+                $this->Komparase_Model->counter_product_compare($idProduk2);
+            }
+            if (strlen($idProduk3) <> '') {
+                $this->Komparase_Model->counter_product_compare($idProduk3);
+            }
+        
+        
 
             if($detect->isMobile()) { 
                 $mobile_dect = 'mobile';

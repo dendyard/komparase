@@ -65,7 +65,8 @@ class Produk extends CI_Controller {
                     'template_spec' => $this->Komparase_Model->get_product_spec_template($kat)
 
                 );
-
+                $this->Komparase_Model->counter_product_read($main['id']);
+                
                 $this->load->view('public/' . $mobile_dect . '/template/header', $data);
                 $this->load->view('public/' . $mobile_dect . '/pages/single-page');
                 $this->load->view('public/' . $mobile_dect . '/template/footer');  

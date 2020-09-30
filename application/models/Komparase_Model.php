@@ -185,4 +185,15 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
         }
     }
     
+    public function counter_product_read($id){
+        $sql = "UPDATE masterproduct SET readcounter=readcounter+1 WHERE id=" . $id;
+        $this->db->query($sql);
+    }
+    
+    public function counter_product_compare($id){
+        $sql = "UPDATE masterproduct SET komparasicounter=komparasicounter+1 WHERE id=" . $id;
+        $this->db->query($sql);
+    }
+    
+    
 }
