@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Xaxis404 extends CI_Controller {
+class Komparase404 extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,18 +21,28 @@ class Xaxis404 extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$logged = $this->session->userdata('userLogged');
-	 	if(!$logged){
-	 		redirect("/login");
-	 	}
+		
+        $this->load->model('Komparase_Model');
 	}
 	
-	public function index()
+	public function index($kat = 'smartphone')
 	{
-        
-        $this->load->view('public/template/xaxis_404');
+            $mobile_dect = 'desktop';  
+            $detect = new Mobile_Detect;
 
+            if($detect->isMobile()) { 
+                $mobile_dect = 'mobile';
+            }
+            
+            $this->output->set_status_header('404');
+            $data = array (
+                'productPilihan' => $this->Komparase_Model->get_product_pilihan($kat),
+                'komparasiPilihan' => $this->Komparase_Model->get_komparasi_pilihan($kat),
+                'artikelPilihan' => $this->Komparase_Model->get_artikel_pilihan($kat),
+            );
+			$this->load->view('public/' . $mobile_dect . '/template/header', $data);
+        	$this->load->view('public/' . $mobile_dect . '/pages/404page');
+        	$this->load->view('public/' . $mobile_dect . '/template/footer');
     }
     
-        
 }
