@@ -4,17 +4,14 @@
     <div class="pd-10">
     <h1 class="banner-h1 fs-22">
         
-    <?php 
-            if (sizeOf($result) <= 0){
-                echo 'Tidak menemukan artikel/produk : ' . $q;    
-            }else {
-                echo 'Hasil pencarian : ' . $q;    
-            }
-        ?>
+    <h1 class="banner-h1">
         
+       Artikel Populer
+       
+    </h1>
     </h1>
     </div>
-    
+    <div class="v-separator"></div>  
     
     
     <div class="kom-ads-300x250">
@@ -52,8 +49,6 @@
                 <div class="card-search-footer">
                 <div class="card-search-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number"><?=$pl['review']?></div></div>
                 </div>
-                
-                
             </div>
             </a>
         </div>
@@ -68,25 +63,6 @@
         <img class="border-1-grey" src="assets/ads/300x250.gif">
     </div>
     
-    <!-- Produk Serupa -->
-    <div id='product-populer-section'>
-      Produk Serupa
-    </div>
     
-    <div id='produk-populer-slide-container'>
-        <?php 
-            foreach ($productSerupa as $pl) {
-        ?>
-        <a href="<?=base_url() . 'produk/read/' . $pl['slug']?>">
-        <div class="card-komparase border-none t-align-center">
-            <div class="card-img-komparase-product"><img src="<?=$pl['imagefeature']?>"></div>
-            <div class="card-date-komparase pd-5 fs-10"></div>
-            <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['productname']?></div>
-            
-        </div>
-        </a>
-        <?php } ?>
-        
-    </div>
 <!-- End of Produk Serupa   -->
 </div>

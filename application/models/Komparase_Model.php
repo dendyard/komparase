@@ -61,12 +61,12 @@ WHERE blogcategory='komparasi-" . $kat . "' AND statusapprove=1  order by intime
         return $result;    
     }
     
-    public function get_artikel_pilihan($kat, $slug='', $tags=''){
+    public function get_artikel_pilihan($kat, $slug='', $tags='', $limit = '5'){
         $sql0 = "SELECT *, 
 (CASE WHEN (b.review >= 0) THEN b.review
       ELSE '0' END) as review FROM blogpost a LEFT JOIN user_review_blog_total b
 ON a.id = b.idproduk
-WHERE blogcategory='blog-" . $kat . "'" . ($slug <> '' ? " AND slug !='" . $slug . "' " : "") . ($tags <> '' ? " AND (" . $tags . ")" : "") . " AND statusapprove=1  order by intime DESC LIMIT 5";   
+WHERE blogcategory='blog-" . $kat . "'" . ($slug <> '' ? " AND slug !='" . $slug . "' " : "") . ($tags <> '' ? " AND (" . $tags . ")" : "") . " AND statusapprove=1  order by intime DESC LIMIT " . $limit;   
         
 //              echo $sql0;
 //      exit();
@@ -86,10 +86,18 @@ WHERE blogcategory='blog-" . $kat . "'" . ($slug <> '' ? " AND slug !='" . $slug
     }
     
     public function get_product_detail($kat, $proid){
-        $sql0 = "SELECT * FROM masterproduct WHERE id=" . $proid . " order by productname";   
+        
+        $sql0 = "SELECT * FROM masterproduct WHERE id=" . htmlentities($proid) . " order by productname";   
         
         $query0 = $this->db->query($sql0);
-        $result = $query0->row_array();
+        
+        //exit();
+        if ($query0->num_rows() > 0){
+            $result = $query0->row_array();    
+        }else{
+            $result = $query0->result_array();    
+        }
+        
         return $result;    
     }
     
@@ -167,9 +175,14 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
     public function get_artikel_full($slug){
         $sql0 = "SELECT * FROM blogpost WHERE slug='" . $slug . "'";   
         
+        
         $query0 = $this->db->query($sql0);
-        $result = $query0->row_array();
-        return $result; 
+        if ($query0->num_rows() > 0){
+            $result = $query0->row_array();
+            return $result; 
+        }else{
+            return 'empty';
+        }
     }
     
 }

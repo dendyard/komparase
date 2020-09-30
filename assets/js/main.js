@@ -2,7 +2,7 @@
 var where = window.location.host;
 var pathArray, mypage;
 
-  if(where == 'localhost:8899'){
+  if(where == 'localhost'){
       var base_url = window.location.protocol + "//" + window.location.host + "/komparase/";
       pathArray = window.location.pathname.split("/");
       //console.log(pathArray[2]);

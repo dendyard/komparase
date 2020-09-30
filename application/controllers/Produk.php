@@ -38,7 +38,9 @@ class Produk extends CI_Controller {
         	$this->load->view('public/' . $mobile_dect . '/template/footer');
     }
     
-    public function read($slug) {
+    
+    
+    public function read($slug='') {
             $mobile_dect = 'desktop';  
             $detect = new Mobile_Detect;
 
@@ -46,6 +48,7 @@ class Produk extends CI_Controller {
                 $mobile_dect = 'mobile';
             }
         
+            if (strlen($slug) == '') { redirect('/', 'refresh'); }
             $kat = 'smartphone';
         
             $main = $this->Komparase_Model->get_product_main($slug);

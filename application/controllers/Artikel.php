@@ -25,7 +25,7 @@ class Artikel extends CI_Controller {
         $this->load->model('Komparase_Model');
 	}
 	
-	public function index($kat = 'smartphone')
+	public function index()
 	{
             $mobile_dect = 'desktop';  
             $detect = new Mobile_Detect;
@@ -33,16 +33,21 @@ class Artikel extends CI_Controller {
             if($detect->isMobile()) { 
                 $mobile_dect = 'mobile';
             }
+            $kat = 'smartphone';
         
-			$this->load->view('public/' . $mobile_dect . '/template/header');
-        	$this->load->view('public/' . $mobile_dect . '/pages/blog-page');
+            $data = array (
+                'result' => $this->Komparase_Model->get_artikel_pilihan($kat,'','','10'),
+            );
+        
+			$this->load->view('public/' . $mobile_dect . '/template/header', $data);
+        	$this->load->view('public/' . $mobile_dect . '/pages/blog-list-page');
         	$this->load->view('public/' . $mobile_dect . '/template/footer');
     }
     
-    public function read($slug) {
+    public function read($slug='') {
             $mobile_dect = 'desktop';  
             $detect = new Mobile_Detect;
-
+            if (strlen($slug) == '') { redirect('/artikel', 'refresh'); }
             if($detect->isMobile()) { 
                 $mobile_dect = 'mobile';
             }
@@ -51,6 +56,8 @@ class Artikel extends CI_Controller {
         
             $main = $this->Komparase_Model->get_product_main($slug);
             $blog_art = $this->Komparase_Model->get_artikel_full($slug);
+        
+            if ($blog_art == 'empty') { redirect('/artikel', 'refresh'); }
             $tags = explode(',',$blog_art['tags']);
             $liketags = '';
         
