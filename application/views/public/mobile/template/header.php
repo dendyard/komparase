@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 
 <head>
     
@@ -14,7 +14,7 @@
 <meta name="theme-color" content="#c7b198">
 <meta name="msapplication-TileImage" content="<?=base_url()?>favicon2.ico">
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link href="<?=base_url()?>assets/css/main-mobile.css" rel="stylesheet">
 <link href="<?=base_url()?>assets/css/general.css" rel="stylesheet">

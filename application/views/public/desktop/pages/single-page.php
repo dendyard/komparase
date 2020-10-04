@@ -35,19 +35,19 @@
             <?php $spcjsn = json_decode($mainData['spec']); ?>
             <p class="komparase-subtittle font-poppins">
                 <span class="fw-500">Tanggal Release :</span>
-                <span class="fw-300">&nbsp;<?=$spcjsn->rilis->spec->tanggal;?></span>
+                <span class="fw-300">&nbsp;<?=base64_decode($spcjsn->rilis->spec->Tanggal);?></span>
                 <br>
                     <span class="fw-500">Berat :</span>
-                    <span class="fw-300">&nbsp;<?=$spcjsn->body->spec->berat;?></span>
+                    <span class="fw-300">&nbsp;<?=base64_decode($spcjsn->body->spec->Berat);?></span>
                 <br>
                     <span class="fw-500">OS :</span>
-                    <span class="fw-300">&nbsp;<?=$spcjsn->platform->spec->os;?></span>
+                    <span class="fw-300">&nbsp;<?=base64_decode($spcjsn->platform->spec->OS);?></span>
                 <br>
                     <span class="fw-500">RAM :</span>
-                    <span class="fw-300">&nbsp;<?=$spcjsn->memory->spec->internal;?></span>
+                    <span class="fw-300">&nbsp;<?=base64_decode($spcjsn->memory->spec->Internal);?></span>
                 <br>
                     <span class="fw-500">Layar :</span>
-                    <span class="fw-300">&nbsp;<?=$spcjsn->layar->spec->ukuran;?></span>
+                    <span class="fw-300">&nbsp;<?=base64_decode($spcjsn->layar->spec->Ukuran);?></span>
                 
             </p>
             <div class="produk-single-price font-poppins">
@@ -155,7 +155,9 @@
             <tbody>
                 <?php 
                     
-                    
+                     
+                      //echo $mainData['spec'];        
+                
                     foreach ($template_spec as $ts) {
                 ?>
                 <tr>
@@ -172,10 +174,10 @@
                         
                         foreach($spcjsn->$node->spec as $key=>$value){
                             if ($first) {
-                                echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value ;
+                                echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . iconv("ISO-8859-1", "UTF-8",base64_decode($value)) ;
                                 $first = false;
                             }else{
-                                echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
+                                echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . iconv("ISO-8859-1", "UTF-8",base64_decode($value));
                             }
                         }
                         }

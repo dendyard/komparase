@@ -176,10 +176,10 @@
 
                                 foreach($projsn1->$node->spec as $key=>$value){
                                     if ($first) {
-                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value ;
+                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . iconv("ISO-8859-1", "UTF-8",base64_decode($value)) ;
                                         $first = false;
                                     }else{
-                                        echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
+                                        echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . iconv("ISO-8859-1", "UTF-8",base64_decode($value));
                                     }
                                 }
                     
@@ -195,10 +195,10 @@
 
                                 foreach($projsn2->$node->spec as $key=>$value){
                                     if ($first) {
-                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value ;
+                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . iconv("ISO-8859-1", "UTF-8",base64_decode($value)) ;
                                         $first = false;
                                     }else{
-                                        echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
+                                        echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . iconv("ISO-8859-1", "UTF-8",base64_decode($value));
                                     }
                                 }
                     
