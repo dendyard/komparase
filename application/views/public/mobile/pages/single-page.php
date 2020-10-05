@@ -37,19 +37,19 @@
             </div>
             <div class="review-grid-pro-comment fs-14 t-align-left font-poppins">
                 <span class="fw-500">Tanggal Release :</span>
-                <span class="fw-300">&nbsp;<?=base64_decode($spcjsn->rilis->spec->Tanggal);?></span>
+                <span class="fw-300">&nbsp;<?=$spcjsn->rilis->spec->Tanggal;?></span>
                 <br>
                     <span class="fw-500">Berat :</span>
-                    <span class="fw-300">&nbsp;<?=base64_decode($spcjsn->body->spec->Berat);?></span>
+                    <span class="fw-300">&nbsp;<?=$spcjsn->body->spec->Berat;?></span>
                 <br>
                     <span class="fw-500">OS :</span>
-                    <span class="fw-300">&nbsp;<?=base64_decode($spcjsn->platform->spec->OS);?></span>
+                    <span class="fw-300">&nbsp;<?=$spcjsn->platform->spec->OS;?></span>
                 <br>
                     <span class="fw-500">RAM :</span>
-                    <span class="fw-300">&nbsp;<?=base64_decode($spcjsn->memory->spec->Internal);?></span>
+                    <span class="fw-300">&nbsp;<?=$spcjsn->memory->spec->Internal;?></span>
                 <br>
                     <span class="fw-500">Layar :</span>
-                    <span class="fw-300">&nbsp;<?=base64_decode($spcjsn->layar->spec->Ukuran);?></span>
+                    <span class="fw-300">&nbsp;<?=$spcjsn->layar->spec->Ukuran;?></span>
                 
             </div>
         </div>
@@ -170,10 +170,10 @@
                         
                         foreach($spcjsn->$node->spec as $key=>$value){
                             if ($first) {
-                                echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . iconv("ISO-8859-1", "UTF-8",base64_decode($value)) ;
+                                echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value ;
                                 $first = false;
                             }else{
-                                echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . iconv("ISO-8859-1", "UTF-8",base64_decode($value));
+                                echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
                             }
                         }
                         }
