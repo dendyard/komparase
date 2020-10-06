@@ -16,7 +16,7 @@
     
 
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
-<link href="<?=base_url()?>assets/css/main.css?v=1" rel="stylesheet">
+<link href="<?=base_url()?>assets/css/main.css?v=2" rel="stylesheet">
 <link href="<?=base_url()?>assets/css/general.css?v=1" rel="stylesheet">
     
     

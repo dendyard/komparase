@@ -148,6 +148,10 @@
 <div class="v-separator"></div>   
 
 <!-- Komparasi Pilihan -->
+    <?php
+    if ($mainData['blogproduct'] != '') {
+        
+    ?>
     <div id='ringkasan-produk-section'>
       Tentang Produk
     </div>
@@ -160,6 +164,7 @@
         
         
     </div>
+        <?php } ?>
 <!-- End of Komparasi Pilihan   -->
 
 <!--Spec Tech-->

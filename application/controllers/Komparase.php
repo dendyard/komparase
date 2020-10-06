@@ -42,6 +42,7 @@ class Komparase extends CI_Controller {
             'productPilihan' => $this->Komparase_Model->get_product_pilihan($kat),
             'komparasiPilihan' => $this->Komparase_Model->get_komparasi_pilihan($kat),
             'artikelPilihan' => $this->Komparase_Model->get_artikel_pilihan($kat),
+            'productTerbaru' => $this->Komparase_Model->get_product_terbaru($kat),
         );
         
 		$this->load->view('public/' . $mobile_dect . '/template/header', $data);

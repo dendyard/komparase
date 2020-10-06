@@ -150,11 +150,8 @@
       Tentang Produk
     </div>
     
-    <div id='ringkasan-produk-content' class="pd-b-20">
-       
-        <p class="fs-14 pd-10"><?=$mainData['blogproduct']?></p>
-        
-       
+    <div id='ringkasan-produk-content' class="pd-b-20">       
+        <div class="fs-14 pd-10"><?=$mainData['blogproduct']?></div>
     </div>
 <!-- End of Komparasi Pilihan   -->
     <div class="kom-ads-300x250">

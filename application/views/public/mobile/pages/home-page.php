@@ -81,6 +81,27 @@
     </div>
 <!-- End of Produk Pilihan   -->
     
+    <!-- Produk Pilihan -->
+    <div id='product-populer-section'>
+      Smartphone Terbaru
+    </div>
+    
+    <div id='produk-populer-slide-container'>
+        <?php 
+            foreach ($productTerbaru as $pl) {
+        ?>
+        <a href="<?=base_url() . 'produk/read/' . $pl['slug']?>">
+        <div class="card-komparase border-none t-align-center">
+            <div class="card-img-komparase-product"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['productname']?></div>
+            
+        </div>
+        </a>
+        <?php 
+            } 
+        ?>
+    </div>
+    
     <div class="kom-ads-300x250">
         <img class="border-1-grey" src="assets/ads/300x250.gif">
     </div>

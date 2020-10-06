@@ -161,7 +161,7 @@
     <input type="hidden" id='idphone1' value="<?=(sizeOf($prod1) > 0 ? $prod1['id'] : '')?>">
     <input type="hidden" id='idphone2' value="<?=(sizeOf($prod2) > 0 ? $prod2['id'] : '')?>">
     <input type="hidden" id='idphone3' value="<?=(sizeOf($prod3) > 0 ? $prod3['id'] : '')?>">
-
+<div class="v-separator"></div> 
     <?php 
     
         if ($prod1['excerptproduct'] == '' && 

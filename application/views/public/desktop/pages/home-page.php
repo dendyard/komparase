@@ -94,7 +94,7 @@
     
 <!-- Produk Pilihan -->
     <div id='product-populer-section'>
-      Produk Pilihan Terbaru
+      Artikel Pilihan
     </div>
     
     <div id='produk-populer-slide-container'>
@@ -115,6 +115,29 @@
         <?php } ?>
     </div>
 <!-- End of Produk Pilihan   -->
+        
+<!-- Produk Pilihan -->
+    <div id='product-populer-section'>
+      Smartphone Terbaru
+    </div>
+    
+    <div id='produk-populer-slide-container'>
+        <?php 
+            foreach ($productTerbaru as $pl) {
+        ?>
+        <a href="<?=base_url() . 'produk/read/' . $pl['slug']?>">
+        <div class="card-komparase border-none t-align-center">
+            <div class="card-img-komparase-product"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-date-komparase pd-5 fs-10"></div>
+            <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['productname']?></div>
+            
+        </div>
+        </a>
+        <?php } ?>
+        
+    </div>
+<!-- End of Produk Pilihan   -->
+        
 <!--Ad Container 970x250 (Billboard)-->
     <div class="kom-ads-970x250">
         <img class="border-1-grey" src="assets/ads/970x250.jpg">

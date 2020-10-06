@@ -51,6 +51,23 @@ WHERE blogcategory='" . $kat . "' AND choosenproduct=1  order by intime DESC LIM
         return $result;    
     }
     
+    public function get_product_terbaru($kat) {
+        
+        $lsprod = '';
+        
+        if ($kat == 'smartphone') {
+            $kat = '5';
+        }
+        
+        $sql0 = "SELECT id, productname, imagefeature, slug FROM masterproduct WHERE idcategory=" . $kat . " ORDER BY id DESC LIMIT 4";   
+        
+//      echo $sql0;
+//      exit();
+        $query0 = $this->db->query($sql0);
+        $result = $query0->result_array();
+        return $result;    
+    }
+    
     
     public function get_komparasi_pilihan($kat){
         $sql0 = "SELECT * FROM blogpost 
