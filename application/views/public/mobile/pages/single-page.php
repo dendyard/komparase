@@ -8,6 +8,9 @@
     <div>
     <h2 class="banner-h2">Smartphone, Automotive, Cities, Books, Travels, Movies and many more...</h2>
     </div>
+    <div class="kom-ads-300x100-leaderboard">
+    <img class="border-1-grey" src="<?=base_url()?>assets/ads/SA_NewNormal_320x100.gif">
+    </div>
     <div class="tab" id='tab-smartphone'>Smartphone</div>
     <div class="tab tab-blur" id='tab-auto' 
          onclick="bandingkan_single(<?=$mainData['id']?>)">Bandingkan</div>
@@ -137,15 +140,13 @@
 
                 </div>
             </div>
-
-            
-            
-        
-        
     </div>
     
     
     <!-- Komparasi Pilihan -->
+    <?php 
+        if ($mainData['blogproduct'] <> ''){
+    ?>
     <div id='ringkasan-produk-section'>
       Tentang Produk
     </div>
@@ -153,6 +154,7 @@
     <div id='ringkasan-produk-content' class="pd-b-20">       
         <div class="fs-14 pd-10"><?=$mainData['blogproduct']?></div>
     </div>
+    <?php } ?>
 <!-- End of Komparasi Pilihan   -->
     <div class="kom-ads-300x250">
         <img class="border-1-grey" src="<?=base_url()?>assets/ads/300x250.gif">

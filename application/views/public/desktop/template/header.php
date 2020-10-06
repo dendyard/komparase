@@ -34,8 +34,8 @@
     
 <nav id='main-menu' class="main-menu">
     <div class="menu-container">
-        <div class="menu-item-cont"><a href="#">Kategori</a></div>
-        <div class="menu-item-cont"><a href="#">Produk Populer</a></div>
+        
+        <div class="menu-item-cont"><a href="<?=base_url()?>artikel">Produk Populer</a></div>
         <div class="menu-item-cont"><a href="#">Review</a></div>
         <div class="menu-item-cont"><a href="#">Komparasi Populer</a></div>
         <div class="menu-item-cont"><a href="#">Video</a></div>

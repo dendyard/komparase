@@ -860,3 +860,19 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     color: #000 !important;
     text-decoration: none;
 }
+
+.kom-ads-300x100-sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -5px;
+    z-index: 100;
+    width: 100%;
+    text-align: center;
+}
+
+.kom-ads-300x100-leaderboard {
+    text-align: center;
+    margin-top: 20px;
+}

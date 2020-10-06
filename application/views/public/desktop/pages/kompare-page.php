@@ -260,7 +260,7 @@
 
                                 foreach($projsn1->$node->spec as $key=>$value){
                                     if ($first) {
-                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value ;
+                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . ($key == 'harga' ? number_format($value, '0',',','.') :$value) ;
                                         $first = false;
                                     }else{
                                         echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
@@ -281,7 +281,7 @@
 
                                 foreach($projsn2->$node->spec as $key=>$value){
                                     if ($first) {
-                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value ;
+                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . ($key == 'harga' ? number_format($value, '0',',','.') :$value) ;
                                         $first = false;
                                     }else{
                                         echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
@@ -303,7 +303,7 @@
 
                                 foreach($projsn3->$node->spec as $key=>$value){
                                     if ($first) {
-                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value ;
+                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . ($key == 'harga' ? number_format($value, '0',',','.') :$value) ;
                                         $first = false;
                                     }else{
                                         echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;

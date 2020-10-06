@@ -22,6 +22,11 @@
     
 </head>
 <body>
+    
+<div class="kom-ads-300x100-sticky">
+    <img class="border-1-grey" src="<?=base_url()?>assets/ads/SA_NewNormal_320x100.gif">
+</div>
+    
 <div id='float-search'>
     <input placeholder="Cari artikel/produk favorit kamu"
                                  type="text" class="search-main" id='searchbox' onfocusout="closeSearch()">
@@ -41,8 +46,7 @@
     <div class="menu-container">
         
         <ul>
-            <li>Kategori</li>
-            <li>Produk Populer</li>
+            <li><a class="color-white" href="<?=base_url()?>artikel">Produk Populer</a></li>
             <li>Review</li>
             <li>Komparasi Populer</li>
             <li>Video</li>
