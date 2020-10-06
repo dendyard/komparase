@@ -19,6 +19,23 @@ var pathArray, mypage;
 var phoneid1='',phoneid2='',phoneid3='';
 //get_smartphone_list();
 
+function searchOnBlur(tb_container){
+    switch(tb_container) {
+        case 'stable-1':
+            document.getElementById('tbsrc2-container').style.display = 'none';
+            document.getElementById('tbsrc3-container').style.display = 'none';
+            break;
+        case 'stable-2':
+            document.getElementById('tbsrc1-container').style.display = 'none';
+            document.getElementById('tbsrc3-container').style.display = 'none';
+            break;
+        case 'stable-3':
+            document.getElementById('tbsrc2-container').style.display = 'none';
+            document.getElementById('tbsrc1-container').style.display = 'none';
+            break;
+    }
+    
+}
 
 function searchOnList(tbox_name, tb_name, rekom=false) {
   var tb_container, input, filter, table, tr, td, i, txtValue;
@@ -31,17 +48,18 @@ function searchOnList(tbox_name, tb_name, rekom=false) {
   switch(tb_name){
       case 'stable-1':
           tb_container = 'tbsrc1-container';
-          //document.getElementById('iconPhoneSelect-1').src = 'assets/images/blank-kom.png';
+          
+          
           phoneid1 = '';
           break;
       case 'stable-2':
           tb_container = 'tbsrc2-container';
-          //document.getElementById('iconPhoneSelect-2').src = 'assets/images/blank-kom.png';
+          
           phoneid2 = '';
           break;
       case 'stable-3':
           tb_container = 'tbsrc3-container';
-          //document.getElementById('iconPhoneSelect-3').src = 'assets/images/blank-kom.png';
+          
           phoneid3 = '';
           break;
   }
@@ -92,7 +110,6 @@ function pickPhone(tbox_name, phone_pick, ls_img, phone_id){
           phoneid3 = phone_id;       
           break;
     }
-    
     
     document.getElementById(tbox_name).value = phone_pick;
     document.getElementById(tbselector).style.display = 'none';

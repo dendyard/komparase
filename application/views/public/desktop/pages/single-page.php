@@ -34,20 +34,41 @@
             </p>
             <?php $spcjsn = json_decode($mainData['spec']); ?>
             <p class="komparase-subtittle font-poppins">
-                <span class="fw-500">Tanggal Release :</span>
-                <span class="fw-300">&nbsp;<?=$spcjsn->rilis->spec->Tanggal?></span>
+                <span class="fw-500 color-orange">Tanggal Release :</span>
+                <span class="fw-300 fs-14"><br>
+                        <?php
+                         echo str_replace("<hr>","<br>",$spcjsn->rilis->spec->Tanggal);
+                        ?>
+                </span>
                 <br>
-                    <span class="fw-500">Berat :</span>
-                    <span class="fw-300">&nbsp;<?=$spcjsn->body->spec->Berat?></span>
+                    <span class="fw-500 color-orange">Berat :</span>
+                    <span class="fw-300 fs-14"><br>
+                        <?php
+                         echo str_replace("<hr>","<br>",$spcjsn->body->spec->Berat);
+                        ?>
+                    </span>
                 <br>
-                    <span class="fw-500">OS :</span>
-                    <span class="fw-300">&nbsp;<?=$spcjsn->platform->spec->OS?></span>
+                    <span class="fw-500 color-orange">OS :</span>
+                    <span ><br>
+                        <?php
+                         echo str_replace("<hr>","<br>",$spcjsn->platform->spec->OS);
+                        ?>
+                    </span>
                 <br>
-                    <span class="fw-500">RAM :</span>
-                    <span class="fw-300">&nbsp;<?=$spcjsn->memory->spec->Internal?></span>
+                    <span class="fw-500 color-orange">RAM :</span>
+                    <span class="fw-300 fs-14"><br>
+                        <?php
+                         echo str_replace("<hr>","<br>",$spcjsn->memory->spec->Internal);
+                        ?>
+                </span>
                 <br>
-                    <span class="fw-500">Layar :</span>
-                    <span class="fw-300">&nbsp;<?=$spcjsn->layar->spec->Ukuran?></span>
+                    <span class="fw-500 color-orange">Layar :</span>
+                    <span class="fw-300 fs-14"><br>
+                        
+                        <?php
+                         echo str_replace("<hr>","<br>",$spcjsn->layar->spec->Ukuran);
+                        ?>
+                    </span>
                 
             </p>
             <div class="produk-single-price font-poppins">

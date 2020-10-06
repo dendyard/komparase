@@ -36,7 +36,7 @@
                     echo '<div class="col-kom-search-box">';
                 }
             ?>    
-                <input type="text" onkeyup="searchOnList('searchPhone1', 'stable-1')" id='searchPhone1' value="<?=(sizeOf($prod1) > 0 ? $prod1['productname']:'')?>">
+                <input type="text" onfocus="searchOnBlur('stable-1')"  onkeyup="searchOnList('searchPhone1', 'stable-1')" id='searchPhone1' value="<?=(sizeOf($prod1) > 0 ? $prod1['productname']:'')?>">
             </div>
             
             <div class="col-kom-info">
@@ -69,7 +69,7 @@
                 }
             ?>
             
-                <input type="text" onkeyup="searchOnList('searchPhone2', 'stable-2')" id='searchPhone2' value="<?=(sizeOf($prod2) > 0 ? $prod2['productname']:'')?>">
+                <input type="text"  onfocus="searchOnBlur('stable-2')"  onkeyup="searchOnList('searchPhone2', 'stable-2')" id='searchPhone2' value="<?=(sizeOf($prod2) > 0 ? $prod2['productname']:'')?>">
             </div>
         
             <div class="col-kom-info">
@@ -105,6 +105,13 @@
     <input type="hidden" id='idphone3' value="<?=(sizeOf($prod3) > 0 ? $prod3['id'] : '')?>">
 
     <!-- Komparasi Pilihan -->
+    <?php 
+    
+        if ($prod1['excerptproduct'] == '' && 
+            $prod2['excerptproduct'] == '') {
+    
+        }else{
+    ?>  
     <div id='ringkasan-produk-section'>
       Ringkasan Produk
     </div>
@@ -113,18 +120,23 @@
         
         <?php 
            if (sizeOf($prod1) > 0) {    
-                echo '<span class="ringkasan-produk ml-10">' . $prod1['productname'] . '</span>';
-                echo '<p class="fs-14 pd-10">' . $prod1['excerptproduct'] . '</p>';
+               if ($prod1['excerptproduct'] <> ''){
+                    echo '<span class="ringkasan-produk ml-10">' . $prod1['productname'] . '</span>';
+                    echo '<p class="fs-14 pd-10">' . $prod1['excerptproduct'] . '</p>';
+               }
            }
         ?>
         <?php 
            if (sizeOf($prod2) > 0) {    
-                echo '<span class="ringkasan-produk ml-10">' . $prod2['productname'] . '</span>';
-                echo '<p class="fs-14 pd-10">' . $prod2['excerptproduct'] . '</p>';
+               if ($prod2['excerptproduct'] <> ''){
+                    echo '<span class="ringkasan-produk ml-10">' . $prod2['productname'] . '</span>';
+                    echo '<p class="fs-14 pd-10">' . $prod2['excerptproduct'] . '</p>';
+               }
            }
         ?>
         
     </div>
+    <?php } ?>
 <!-- End of Komparasi Pilihan   -->
     <div class="kom-ads-300x250">
         <img class="border-1-grey" src="assets/ads/300x250.gif">

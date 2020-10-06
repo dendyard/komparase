@@ -29,7 +29,7 @@
         <div class="col-tab">
             <div class="col-kom-tittle">Bandingkan dengan :</div>
             <div class="col-kom-search-box">
-                <input type="text" onkeyup="searchOnList('searchPhone1', 'stable-1')" id='searchPhone1'>
+                <input type="text"  onfocus="searchOnBlur('stable-1')" onkeyup="searchOnList('searchPhone1', 'stable-1')" id='searchPhone1'>
             </div>
             
             <div class="col-kom-info">
@@ -42,7 +42,7 @@
         <div class="col-tab">
         <div class="col-kom-tittle">Bandingkan dengan :</div>
             <div class="col-kom-search-box">
-                <input type="text" onkeyup="searchOnList('searchPhone2', 'stable-2')" id='searchPhone2'>
+                <input type="text" onfocus="searchOnBlur('stable-2')"  onkeyup="searchOnList('searchPhone2', 'stable-2')" id='searchPhone2'>
             </div>
         
             <div class="col-kom-info">

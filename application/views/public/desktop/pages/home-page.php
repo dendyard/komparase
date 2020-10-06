@@ -54,7 +54,7 @@
         <div class="col-tab">
             <div class="col-kom-tittle">Bandingkan dengan :</div>
             <div class="col-kom-search-box">
-                <input type="text" onkeyup="searchOnList('searchPhone1', 'stable-1')" id='searchPhone1'></div>
+                <input type="text"  onfocus="searchOnBlur('stable-1')"  onkeyup="searchOnList('searchPhone1', 'stable-1')" id='searchPhone1'></div>
             <img src="assets/images/loop-brown.png" class="col-kom-search-icon" />
             <div class="col-kom-info">
                 <span class="info">i</span> Masukkan Merk/Model Smartphone
@@ -66,7 +66,7 @@
         <div class="col-tab">
         <div class="col-kom-tittle">Bandingkan dengan :</div>
             <div class="col-kom-search-box">
-                <input type="text" onkeyup="searchOnList('searchPhone2', 'stable-2')" id='searchPhone2'>
+                <input type="text" onfocus="searchOnBlur('stable-2')"  onkeyup="searchOnList('searchPhone2', 'stable-2')" id='searchPhone2'>
             </div>
             <img src="assets/images/loop-brown.png" class="col-kom-search-icon" />
             <div class="col-kom-info">
@@ -79,7 +79,7 @@
         <div class="col-tab">
         <div class="col-kom-tittle">Bandingkan dengan :</div>
             <div class="col-kom-search-box">    
-                <input type="text" onkeyup="searchOnList('searchPhone3', 'stable-3')" id='searchPhone3'>
+                <input type="text" onfocus="searchOnBlur('stable-3')"  onkeyup="searchOnList('searchPhone3', 'stable-3')" id='searchPhone3'>
             </div>
             <img src="assets/images/loop-brown.png" class="col-kom-search-icon" />
             <div class="col-kom-info">

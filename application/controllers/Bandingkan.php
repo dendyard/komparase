@@ -34,7 +34,7 @@ class Bandingkan extends CI_Controller {
         $idProduk1  = $this->input->get('idpro1');
 		$idProduk2 	= $this->input->get('idpro2');
         $idProduk3 	= $this->input->get('idpro3');
-        //$kat 	    = $this->input->get('kat');
+        
         $kat 	    = 'smartphone';
         
         $komperitem = 0;
@@ -43,7 +43,7 @@ class Bandingkan extends CI_Controller {
         if ($this->input->get('idpro2')) { $komperitem++; }
         if ($this->input->get('idpro3')) { $komperitem++; }
         
-        if ($komperitem <= 1) { redirect('/', 'refresh'); }
+        if ($komperitem <= 0) { redirect('/', 'refresh'); }
         
         if (strlen($idProduk1) <> '') {
             if (strCheck($idProduk1) || !is_numeric($idProduk1)) {redirect('/', 'refresh');}    
