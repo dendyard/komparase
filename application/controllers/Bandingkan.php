@@ -106,7 +106,7 @@ class Bandingkan extends CI_Controller {
         $price             = $this->input->post('price');
         $slug              = $this->input->post('slug');
         $spec              = $this->input->post('spec');
-
+        $rilisdate         = $this->input->post('rilisdate');
         
         $dataInsert = array(
             'productname'          => $productname,
@@ -118,6 +118,7 @@ class Bandingkan extends CI_Controller {
             'price'                => $price,
             'slug'                 => $slug,
             'spec'                 => $spec,
+            'rilisdate'            => $rilisdate 
         );
         
         
@@ -158,6 +159,7 @@ class Bandingkan extends CI_Controller {
                     'price' => $this->input->post('price'),
                     'spec' => $this->input->post('spec'),
                     'slug' => $this->input->post('slug'),
+                    'rilisdate'            => $this->input->post('rilisdate'), 
                     'idcategory' => '5'
                 );
                 
