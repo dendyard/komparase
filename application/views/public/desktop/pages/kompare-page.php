@@ -210,114 +210,134 @@
 
 <!--Spec Tech-->
     <div id="spec-product-kom">
-        <table class="spec-pr">
+        
+        <?php 
+            if (sizeOf($prod1)) { $projsn1 = json_decode($prod1['spec']); }
+            if (sizeOf($prod2)) { $projsn2 = json_decode($prod2['spec']); }
+            if (sizeOf($prod3)) { $projsn3 = json_decode($prod3['spec']); }
+        ?>
+        
+        <table class="spec-pr table-spec-font">
             <thead>
                 <th class='cw-tbl-spec-0 t-align-left pd-5'>Spesifikasi Teknis</th>
-                <th class='cw-tbl-spec-1 t-align-center'>
-                    <?php 
-                        if (sizeOf($prod1)) {    
-                            echo '<img src="' . $prod1['imagefeature'] . '" class="tab-icon">';
-                            echo '<p>' . $prod1['productname'] . '</p>';
-                       }
-                    ?>
-                </th>
-                <th class='cw-tbl-spec-1 t-align-center '>
-                    <?php 
-                        if (sizeOf($prod2)) {    
-                            echo '<img src="' . $prod2['imagefeature'] . '" class="tab-icon">';
-                            echo '<p>' . $prod2['productname'] . '</p>';
-                       }
-                    ?>
-                </th>
-                <th class='cw-tbl-spec-1 t-align-center'>
-                    <?php 
-                        if (sizeOf($prod3)) {    
-                            echo '<img src="' . $prod3['imagefeature'] . '" class="tab-icon">';
-                            echo '<p>' . $prod3['productname'] . '</p>';
-                       }
-                    ?>
+                
+                <th style="padding:0;">
+                    <table style="width:100%;">
+                       
+                        <tr>
+                            <td class='cw-tbl-spec-1 t-align-center' style="width:277px;">
+                            <?php 
+                                    if (sizeOf($prod1)) {    
+                                        echo '<img src="' . $prod1['imagefeature'] . '" class="tab-icon">';
+                                        echo '<p>' . $prod1['productname'] . '</p>';
+                                    }
+                            ?>  
+                            </td>
+                            <td class='cw-tbl-spec-1 t-align-center' style="width:277px;">
+                        
+                                <?php 
+                                    if (sizeOf($prod2)) {    
+                                        echo '<img src="' . $prod2['imagefeature'] . '" class="tab-icon">';
+                                        echo '<p>' . $prod2['productname'] . '</p>';
+                                   }
+                                ?>
+                        
+                            </td>
+                            <td class='cw-tbl-spec-1 t-align-center' style="width:277px;">
+                                <?php 
+                                    if (sizeOf($prod3)) {    
+                                        echo '<img src="' . $prod3['imagefeature'] . '" class="tab-icon">';
+                                        echo '<p>' . $prod3['productname'] . '</p>';
+                                   }
+                                ?>  
+                            </td>
+
+                        </tr>
+                        
+                    </table>
                 </th>
                 
             </thead>
             <tbody>
                 <?php 
-                if (sizeOf($prod1)) { $projsn1 = json_decode($prod1['spec']); }
-                if (sizeOf($prod2)) { $projsn2 = json_decode($prod2['spec']); }
-                if (sizeOf($prod3)) { $projsn3 = json_decode($prod3['spec']); }
-                
-                foreach ($template_spec as $ts) { 
-                
+                  
+                    foreach ($template_spec as $ts) { 
+                        $node = $ts['spec_name'];
                 ?>
                 <tr>
-                    <td class='table-pad t-align-left fs-14 pd-10 v-align-top'><?=$ts['display_name']?></td>
-                    <td class='t-align-left fs-14 pd-10 v-align-top'>
-                        <?php 
-                            if (sizeOf($prod1)) {
-                            if ($projsn1 != '') {
-                                
-                                $node = $ts['spec_name'];
-                                $first = true;
-
-                                foreach($projsn1->$node->spec as $key=>$value){
-                                    if ($first) {
-                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . ($key == 'harga' ? number_format($value, '0',',','.') :$value) ;
-                                        $first = false;
+                    <td class='table-pad t-align-left fs-18 pd-10 v-align-top kumbh-700 color-orange'><?=$ts['display_name']?></td>
+                    <td colspan="3" style="padding:0;">
+                        <table style="width:100%;background: #fff;">
+                            <?php 
+                            foreach($projsn1->$node->spec as $key=>$value){
+                            ?>
+                            <tr>
+                            <td colspan="3" class="group-spec t-align-center">
+                                <?php
+                                    $module_col = false;
+                                    if ($ts['display_name'] == 'Kamera Utama' || $ts['display_name'] == 'Kamera Selfie'){
+                                        if ($key == 'Single' || $key == 'Dual' || $key == 'Triple' || $key == 'Quad' || $key == 'Five'){
+                                            echo 'Module';
+                                            $module_col = true;
+                                        }else{
+                                            echo ucfirst($key);
+                                        }     
                                     }else{
-                                        echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
+                                        echo ucfirst($key);    
                                     }
-                                }
-                    
-                            }
-                            }
-                        ?>
-                    </td>
-                    <td class='t-align-left fs-14 pd-10 v-align-top'>
-                    <?php 
-                        if (sizeOf($prod2)) {
-                            if ($projsn2 != '') {
-                                
-                                $node = $ts['spec_name'];
-                                $first = true;
-
-                                foreach($projsn2->$node->spec as $key=>$value){
-                                    if ($first) {
-                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . ($key == 'harga' ? number_format($value, '0',',','.') :$value) ;
-                                        $first = false;
+                                ?></td></tr>
+                            <tr>
+                                <td class='t-align-left fs-14 pd-10 v-align-top' style='width:277px;'>
+                                <?php 
+                                   
+                                    if (!$module_col){
+                                       if ($projsn1->$node->spec->$key <> ''){
+                                            echo ($key == 'harga' ? number_format($projsn1->$node->spec->$key, '0',',','.') : $projsn1->$node->spec->$key);
+                                       } 
                                     }else{
-                                        echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
+                                        foreach($projsn1->$node->spec as $key=>$value){
+                                            echo $projsn1->$node->spec->$key;
+                                        }
                                     }
-                                }
-                    
-                            }
-                        }
-                        ?>
-                        
-                    </td>
-                    <td class='t-align-left fs-14 pd-10 v-align-top'>
-                    <?php 
-                        if (sizeOf($prod3)) {
-                            if ($projsn3 != '') {
-                                
-                                $node = $ts['spec_name'];
-                                $first = true;
-
-                                foreach($projsn3->$node->spec as $key=>$value){
-                                    if ($first) {
-                                        echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . ($key == 'harga' ? number_format($value, '0',',','.') :$value) ;
-                                        $first = false;
+                                ?>  
+                                </td>
+                                <td class='t-align-left fs-14 pd-10 v-align-top' style='width:277px;'>
+                                <?php 
+                                    if (!$module_col){    
+                                        if ($projsn2->$node->spec->$key <> ''){
+                                            echo ($key == 'harga' ? number_format($projsn2->$node->spec->$key, '0',',','.') :$projsn2->$node->spec->$key);
+                                        }
                                     }else{
-                                        echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
+                                        foreach($projsn2->$node->spec as $key=>$value){
+                                            echo $projsn2->$node->spec->$key;
+                                        }
+                                        
                                     }
-                                }
-                    
-                            }
-                        }    
-                        
-                        ?>
+                                ?>  
+                                </td>
+                                <td class='t-align-left fs-14 pd-10 v-align-top' style='width:277px;'>
+                                <?php 
+                                    if (!$module_col){    
+                                        if ($projsn3->$node->spec->$key <> ''){
+                                            echo ($key == 'harga' ? number_format($projsn3->$node->spec->$key, '0',',','.') :$projsn3->$node->spec->$key);
+                                        }
+                                    }else{
+                                        foreach($projsn3->$node->spec as $key=>$value){
+                                            echo $projsn3->$node->spec->$key;
+                                        }
+
+                                    }   
+                                ?>
+                                </td>
+                                
+                            </tr>
+                            <?php } ?>
+                        </table>
                     </td>
                 </tr>
                 <?php } ?>
-
+                
+                
             </tbody>
         </table>
     </div>

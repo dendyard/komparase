@@ -525,6 +525,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 .spec-pr{
     width: 100%;
+    word-break: break-word;
 }
 
 .tab-icon {
@@ -825,4 +826,19 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 }
 
 
+.group-spec {
+    background-color: #e0e0e0;
+    color: #2d4059;
+    font-size: 14px;
+    font-weight: 700;
+    height: 20px
+}
+
+.kumbh-700 {
+    font-weight: 700;
+}
+
+.table-spec-font {
+    font-family: 'Kumbh Sans', sans-serif;
+}
 
