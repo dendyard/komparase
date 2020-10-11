@@ -169,7 +169,7 @@
 
 <!--Spec Tech-->
     <div id="spec-product-kom">
-        <table class="spec-pr table-spec-font">
+        <table class="spec-pr">
             <thead>
                 <th class='cw-tbl-spec-0 t-align-left pd-5 wd-200'>Spesifikasi Teknis</th>
                 <th class='cw-tbl-spec-1 t-align-center'>
