@@ -78,5 +78,15 @@ class Gerbang extends CI_Controller {
     }
     
     
+    public function regenerate(){
+        
+        $data = array (
+            'imgfeature' => $this->Komparase_Model->getImgFeature(),
+        );
+        
+        $this->load->view('public/admin/generateurl', $data);
+        
+    }
+    
         
 }

@@ -237,5 +237,13 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
         $this->db->query($sql);
     }
     
+    public function getImgFeature(){
+        $sql0 = "SELECT id,imagefeature FROM masterproduct";   
+
+        $query0 = $this->db->query($sql0);
+        $result = $query0->result_array();
+        return $result; 
+    }
+    
     
 }
