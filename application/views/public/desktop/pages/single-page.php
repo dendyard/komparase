@@ -197,10 +197,10 @@
                         
                         $node = $ts['spec_name'];
                         $first = true;
-                        
+                            
                         foreach($spcjsn->$node->spec as $key=>$value){
                             if ($first) {
-                                echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value ;
+                                echo '<span class=specgroup>' . ucfirst($key) . ' : </span><br>' . ($key == 'harga' ? number_format($value, '0',',','.') : $value);
                                 $first = false;
                             }else{
                                 echo '<hr class=hr-spec><span class=specgroup>' . ucfirst($key) . ' : </span><br>' . $value;
