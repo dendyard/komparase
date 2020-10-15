@@ -203,6 +203,8 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
     }
     
     public function check_slug($slug){
+        
+        
         $sql0 = "SELECT COUNT(slug) as slg FROM masterproduct WHERE slug='" . $slug . "'";   
         $query0 = $this->db->query($sql0);
         
@@ -210,20 +212,40 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
         return $result;
     }
     
+    public function check_slug_blog($slug){
+        
+        
+        $sql0 = "SELECT COUNT(slug) as slg FROM blogpost WHERE slug='" . $slug . "'";   
+        $query0 = $this->db->query($sql0);
+        
+        $result = $query0->result_array();
+        return $result;
+    }
+    
+    
+    
     public function store_product($data, $idpro=''){
         
-        //if ($idpro == '') {
-            
-            //$data = array('name' => $name, 'email' => $email, 'url' => $url);
-            $this->db->insert('masterproduct', $data);
+        $query0 = $this->db->insert('masterproduct', $data);
         
-            //$query0 = $this->db->query($sql0);
-            
-            //if ($this->db->affected_rows())
-            //$result = $query0->result_array();
-            
-            return $result;
-        //}
+        if ($query0){
+            $result = 'done';
+        }else{
+            $result = 'failed';
+        }
+        return $result;
+             
+    }
+    
+    public function store_blog($data, $idpro=''){
+        
+        $query0 = $this->db->insert('blogpost', $data);
+        if ($query0){
+            $result = 'done';
+        }else{
+            $result = 'failed';
+        }
+        return $result;
         
     }
     

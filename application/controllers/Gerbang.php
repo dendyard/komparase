@@ -34,6 +34,10 @@ class Gerbang extends CI_Controller {
 
     }
     
+    public function addartikel(){
+        $this->load->view('public/admin/addartikel');
+    }
+    
     public function addproduct()
 	{        
 		$this->load->view('public/admin/addproduct');
@@ -44,11 +48,21 @@ class Gerbang extends CI_Controller {
         
         $slug = $this->input->post('slug');
         
-        
         $response['status'] = $this->Komparase_Model->check_slug($slug);
         
         echo json_encode($response);
     }
+    
+    public function checkslugblog(){
+        header("Access-Control-Allow-Origin: *");
+        
+        $slug = $this->input->post('slug');
+        
+        $response['status'] = $this->Komparase_Model->check_slug_blog($slug);
+        
+        echo json_encode($response);
+    }
+    
     
     public function savedata($proctype){
         header("Access-Control-Allow-Origin: *");
@@ -70,7 +84,50 @@ class Gerbang extends CI_Controller {
                     'idcategory' => '5'
                 );
                 
+                 
                 $response['status'] = $this->Komparase_Model->store_product($data);
+                break;
+        }
+        
+        echo json_encode($response);
+    }
+    
+    public function saveartikel($proctype){
+        header("Access-Control-Allow-Origin: *");
+        //echo $this->input->post('choosenproduct');
+        
+        //die();
+        switch ($proctype){
+            case "add":
+                
+                $data = array(
+                    'blogtittle' => $this->input->post('blogtittle'),
+                    'imagefeature' => $this->input->post('imagefeature'),
+                    'rating' => $this->input->post('rating'),
+                    'blogexcerpt' => $this->input->post('blogexcerpt'),
+                    'blogcontent' => $this->input->post('blogcontent'),
+                    'tags' => $this->input->post('tags'),
+                    'choosenproduct' => $this->input->post('choosenproduct'),
+                    'slug'       => $this->input->post('slug'),
+                    'blogcategory' => 'blog-smartphone',
+                    'statusapprove' => '1',
+                    'intime' => date("Y-m-d H:i:s")
+                );
+                /*
+                $data = array(
+                    'blogtittle' => 'asdasdasd',
+                    'imagefeature' => 'asdasdasd',
+                    'rating' => '0',
+                    'blogexcerpt' => 'expert',
+                    'blogcontent' => 'blogcontent',
+                    'tags' => 'tags',
+                    'choosenproduct' => '1',
+                    'slug'       => 'asdasd',
+                    'blogcategory' => 'blog-smartphone',
+                    'statusapprove' => '1'
+                );
+                */
+                $response['status'] = $this->Komparase_Model->store_blog($data);
                 break;
         }
         

@@ -48,8 +48,6 @@ function searchOnList(tbox_name, tb_name, rekom=false) {
   switch(tb_name){
       case 'stable-1':
           tb_container = 'tbsrc1-container';
-          
-          
           phoneid1 = '';
           break;
       case 'stable-2':
@@ -69,14 +67,20 @@ function searchOnList(tbox_name, tb_name, rekom=false) {
       document.getElementById(tb_container).style.display = 'block';
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[1];
+            
             if (td) {
               txtValue = td.textContent || td.innerText;
+              
+              //console.log(txtValue.toUpperCase().indexOf(filter));
+                
               if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
               } else {
                 tr[i].style.display = "none";
               }
-            }       
+            }else{
+                //console.log('datane kosong');
+            }
         }
   }else{
       document.getElementById(tb_container).style.display = 'none';

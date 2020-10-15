@@ -47,7 +47,7 @@
                 
                 <input type="text" onfocus="searchOnBlur('stable-1')" onkeyup="searchOnList('searchPhone1', 'stable-1')" id='searchPhone1' value="<?=(sizeOf($prod1) > 0 ? $prod1['productname']:'')?>">
             </div>
-            <img src="assets/images/loop-<?=(sizeOf($prod1)  > 0 ? 'white':'brown')?>.png" class="col-kom-search-icon" />
+            <img src="assets/images/loop-<?=(sizeOf($prod1)  > 0 ? 'brown':'brown')?>.png" class="col-kom-search-icon" />
             <div class="col-kom-info">
                 <span class="info">i</span> Masukkan Merk/Model Smartphone
             </div>
@@ -84,7 +84,7 @@
             ?>
                 <input type="text" onfocus="searchOnBlur('stable-2')" onkeyup="searchOnList('searchPhone2', 'stable-2')" id='searchPhone2' value="<?=(sizeOf($prod2) > 0 ? $prod2['productname']:'')?>">
             </div>
-            <img src="assets/images/loop-<?=(sizeOf($prod1) > 0? 'white':'brown')?>.png" class="col-kom-search-icon" />
+            <img src="assets/images/loop-<?=(sizeOf($prod1) > 0? 'brown':'brown')?>.png" class="col-kom-search-icon" />
             <div class="col-kom-info">
             <span class="info">i</span> Masukkan Merk/Model Smartphone
             </div>
@@ -126,7 +126,7 @@
             <input type="text" onfocus="searchOnBlur('stable-3')"  onkeyup="searchOnList('searchPhone3', 'stable-3')" value="<?=(sizeOf($prod3) > 0 ? $prod3['productname']:'')?>" id='searchPhone3' >
             </div>
             
-            <img src="assets/images/loop-<?=(sizeOf($prod3) > 0 ? 'white':'brown')?>.png" class="col-kom-search-icon" />
+            <img src="assets/images/loop-<?=(sizeOf($prod3) > 0 ? 'brown':'brown')?>.png" class="col-kom-search-icon" />
             <div class="col-kom-info">
             <span class="info">i</span> Masukkan Merk/Model Smartphone
             </div>
@@ -164,9 +164,27 @@
 <div class="v-separator"></div> 
     <?php 
     
-        if ($prod1['excerptproduct'] == '' && 
-            $prod2['excerptproduct'] == '' && 
-            $prod3['excerptproduct'] == '') {
+        
+        $dset1 = '';
+        if (sizeOf($prod1) > 0) {
+            $dset1 = ($prod1['excerptproduct'] == '' ? '' : $prod1['excerptproduct']);
+        } 
+           
+        $dset2 = '';
+        if (sizeOf($prod2) > 0) {
+            $dset2 = ($prod2['excerptproduct'] == '' ? '' : $prod2['excerptproduct']);
+        } 
+           
+        $dset3 = '';
+        if (sizeOf($prod3) > 0) {
+            $dset3 = ($prod3['excerptproduct'] == '' ? '' : $prod3['excerptproduct']);
+        }  
+           
+           
+           
+        if ($dset1 == '' && 
+            $dset2 == '' && 
+            $dset3 == '') {
     
         }else{
     ?>
@@ -289,7 +307,7 @@
                             <tr>
                                 <td class='t-align-left fs-14 pd-10 v-align-top' style='width:277px;'>
                                 <?php 
-                                   
+                                   if (sizeOf($prod1)) {  
                                     if (!$module_col){
                                        if ($projsn1->$node->spec->$key <> ''){
                                             echo ($key == 'harga' ? number_format($projsn1->$node->spec->$key, '0',',','.') : $projsn1->$node->spec->$key);
@@ -299,10 +317,12 @@
                                             echo $projsn1->$node->spec->$key;
                                         }
                                     }
+                                   }
                                 ?>  
                                 </td>
                                 <td class='t-align-left fs-14 pd-10 v-align-top' style='width:277px;'>
                                 <?php 
+                                    if (sizeOf($prod2)) {  
                                     if (!$module_col){    
                                         if ($projsn2->$node->spec->$key <> ''){
                                             echo ($key == 'harga' ? number_format($projsn2->$node->spec->$key, '0',',','.') :$projsn2->$node->spec->$key);
@@ -313,10 +333,12 @@
                                         }
                                         
                                     }
+                                    }
                                 ?>  
                                 </td>
                                 <td class='t-align-left fs-14 pd-10 v-align-top' style='width:277px;'>
                                 <?php 
+                                    if (sizeOf($prod3)) {  
                                     if (!$module_col){    
                                         if ($projsn3->$node->spec->$key <> ''){
                                             echo ($key == 'harga' ? number_format($projsn3->$node->spec->$key, '0',',','.') :$projsn3->$node->spec->$key);
@@ -327,6 +349,7 @@
                                         }
 
                                     }   
+                                    }
                                 ?>
                                 </td>
                                 
@@ -640,7 +663,7 @@
         ?>
         <a href="<?=base_url() . 'produk/read/' . $pl['slug']?>">
         <div class="card-komparase border-none t-align-center">
-            <div class="card-img-komparase-product"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-img-komparase-product"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             <div class="card-date-komparase pd-5 fs-10"></div>
             <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['productname']?></div>
             
@@ -671,7 +694,7 @@
                 }
         ?>
         <div class="card-komparase pointer-cursor" onclick="bandingkan_artikel('smartphone', '<?=$idphs?>')">
-            <div class="card-img-komparase"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-img-komparase"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             <div class="card-date-komparase pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
             <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['blogtittle']?></div>
         </div>
@@ -689,7 +712,7 @@
     ?>
         <div class="card-article border-1-brown">
             <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
-            <div class="card-article-img"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-article-img"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             </a>
             <div class="card-article-content">
                 <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">

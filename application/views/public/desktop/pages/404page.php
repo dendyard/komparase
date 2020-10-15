@@ -39,7 +39,7 @@
         ?>
         
         <div class="card-komparase pointer-cursor" onclick="bandingkan_artikel('smartphone', '<?=$idphs?>')">
-            <div class="card-img-komparase"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-img-komparase"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             <div class="card-date-komparase pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
             <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['blogtittle']?></div>
         </div>

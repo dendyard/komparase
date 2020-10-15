@@ -826,7 +826,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 .active-search-box {
     height: 50px;
-    background-color: #ea5455;
+    background-color: #f0f0f0;
 }
 
 .rekomp-button {

@@ -1084,7 +1084,7 @@
           
           rilis_date_main = document.getElementById('sp_rilisdate').value;
           res_date = rilis_date_main.split('/');
-          //console.log(res_date[2] + '/' + res_date[1] + '/' + res_date[0]);
+          console.log(res_date[2] + '/' + res_date[1] + '/' + res_date[0]);
           //exit();
           statuswait = true;
           showwait();
@@ -1101,6 +1101,7 @@
                     validatedslug = slug_gen;
                 }
               
+                console.log(validatedslug);
                 $.ajax({
                     type: 'POST',
                     url: base_url + 'gerbang/savedata/add',
@@ -1120,7 +1121,7 @@
                 }).done(function (result_save) {
                     statuswait = false;
                     showwait(false);
-                    alert('Data Saved!');
+                    alert('Data Save =>' + result_save['status']);
                 });
 		  });
       }

@@ -30,7 +30,7 @@
         
         <div class="card-search border-1-brown">
             <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
-            <div class="card-search-img"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-search-img"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             <div class="card-search-content">
                 <div class="card-search-tittle pd-b-20 fw-500 fs-22"><?=$pl['blogtittle']?></div>
                 <div class="card-search-body fs-14">

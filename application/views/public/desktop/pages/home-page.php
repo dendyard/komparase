@@ -105,7 +105,7 @@
         
         <div class="card-komparase">
             <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
-            <div class="card-img-komparase"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-img-komparase"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             <div class="card-date-komparase pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
             <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['blogtittle']?></div>
             <div class="card-footer-komparase fs-10"><img src="assets/images/comment.png"> <div class="comment-number"><?=$pl['review']?></div></div>
@@ -127,7 +127,7 @@
         ?>
         <a href="<?=base_url() . 'produk/read/' . $pl['slug']?>">
         <div class="card-komparase border-none t-align-center">
-            <div class="card-img-komparase-product"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-img-komparase-product"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             <div class="card-date-komparase pd-5 fs-10"></div>
             <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['productname']?></div>
             
@@ -164,7 +164,7 @@
         ?>
         
         <div class="card-komparase pointer-cursor" onclick="bandingkan_artikel('smartphone', '<?=$idphs?>')">
-            <div class="card-img-komparase"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-img-komparase"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             <div class="card-date-komparase pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
             <div class="card-excerpt-komparase pd-5 fs-14"><?=$pl['blogtittle']?></div>
         </div>
@@ -185,7 +185,7 @@
     ?>
         <div class="card-article border-1-brown">
             <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
-            <div class="card-article-img"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-article-img"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             </a>
             <div class="card-article-content">
                 <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">

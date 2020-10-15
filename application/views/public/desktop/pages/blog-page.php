@@ -27,6 +27,7 @@
             <h1><?=$blog['blogtittle']?> </h1>  
         </div>
         <div><?=indonesian_date($blog['intime'])?></div>
+        
         <div class="tags">
                     <ul>
                         <?php 
@@ -41,7 +42,8 @@
                     </ul>
                 </div>
         <div>
-            <img src="<?=$blog['imagehero']?>" class="image-hero wd-100">
+            
+            <img src="<?=($blog['imagehero'] == '' ? base_url() . 'assets/artikel/default_hero.jpg' : $blog['imagehero'] )?>" class="image-hero wd-100">
         </div>
         <div class="artikel-body">
         <?=$blog['blogcontent']?> 
@@ -57,7 +59,7 @@
     ?>
         <div class="card-article border-1-brown">
             <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
-            <div class="card-article-img"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-article-img"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             </a>
             <div class="card-article-content">
                 <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">

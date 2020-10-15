@@ -36,7 +36,7 @@
                     </ul>
                 </div>
         <div>
-            <img src="<?=$blog['imagehero']?>" class="image-hero wd-100">
+            <img src="<?=($blog['imagehero'] == '' ? base_url() . 'assets/artikel/default_hero.jpg' : $blog['imagehero'] )?>" class="image-hero wd-100">
         </div>
         <div class="artikel-body">
         <?=$blog['blogcontent']?> 
@@ -61,7 +61,7 @@
         ?>
         <div class="card-komparase-artikel">
             <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
-            <div class="card-img-komparase-artikel"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-img-komparase-artikel"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             <div class="card-date-komparase-artikel pd-5 fs-10"><?=indonesian_date($pl['intime'])?></div>
             <div class="card-excerpt-komparase-artikel pd-5 fs-14"><?=$pl['blogtittle']?></div>
             

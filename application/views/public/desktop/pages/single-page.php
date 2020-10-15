@@ -385,7 +385,7 @@
     ?>
         <div class="card-article border-1-brown">
             <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
-            <div class="card-article-img"><img src="<?=$pl['imagefeature']?>"></div>
+            <div class="card-article-img"><img src="<?=($pl['imagefeature'] == '' ? base_url() . 'assets/artikel/default_thumb.jpg' : $pl['imagefeature'] )?>"></div>
             </a>
             <div class="card-article-content">
                 <a href="<?=base_url() . 'artikel/read/' . $pl['slug']?>" class="artikel-link">
