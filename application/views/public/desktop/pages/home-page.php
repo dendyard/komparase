@@ -114,6 +114,7 @@
         
         <?php } ?>
     </div>
+        
 <!-- End of Produk Pilihan   -->
         
 <!-- Produk Pilihan -->
@@ -180,6 +181,8 @@
     
     
     <div id='artikel-container-left'>
+        <div id='art-cards'>
+        <input type="hidden" id='artpage' value='<?=$artikelPage?>'>
         <?php 
         foreach ($artikelPilihan as $pl) {
     ?>
@@ -216,7 +219,17 @@
         </div>   
         
       <?php } ?>
-        
+        </div>
+        <div>
+            
+              <div id='animations'>
+                <div id='bar1'></div>
+                <div id='bar2'></div>
+                <div id='bar3'></div>
+              </div>
+            
+            <button class="more-view" id='btn_more_art' onclick="appendart()">Muat Artikel</button>
+        </div>
         
     </div>
     

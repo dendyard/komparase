@@ -36,7 +36,8 @@ class Artikel extends CI_Controller {
             $kat = 'smartphone';
         
             $data = array (
-                'result' => $this->Komparase_Model->get_artikel_pilihan($kat,'','','10'),
+                'result' => $this->Komparase_Model->get_artikel_pilihan($kat,'','','5'),
+                'artikelPage' => '5'
             );
         
 			$this->load->view('public/' . $mobile_dect . '/template/header', $data);

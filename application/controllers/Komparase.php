@@ -29,7 +29,6 @@ class Komparase extends CI_Controller {
 	
 	public function index($kat='smartphone')
 	{
-        
         $mobile_dect = 'desktop';  
         $detect = new Mobile_Detect;
         
@@ -43,6 +42,7 @@ class Komparase extends CI_Controller {
             'komparasiPilihan' => $this->Komparase_Model->get_komparasi_pilihan($kat),
             'artikelPilihan' => $this->Komparase_Model->get_artikel_pilihan($kat),
             'productTerbaru' => $this->Komparase_Model->get_product_terbaru($kat),
+            'artikelPage' => '5'
         );
         
 		$this->load->view('public/' . $mobile_dect . '/template/header', $data);

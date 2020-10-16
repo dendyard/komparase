@@ -1,6 +1,7 @@
 
 var where = window.location.host;
-var pathArray, mypage;
+var pathArray, mypage, home_artikel_offset = 5;
+var statuswait = false;   
 
   if(where == 'localhost'){
       var base_url = window.location.protocol + "//" + window.location.host + "/komparase/";
@@ -17,7 +18,6 @@ var pathArray, mypage;
 
 
 var phoneid1='',phoneid2='',phoneid3='';
-//get_smartphone_list();
 
 function searchOnBlur(tb_container){
     switch(tb_container) {
@@ -213,6 +213,103 @@ function showSearchBox(){
 function closeSearch(){
     document.getElementById('searchbox').value = '';
     document.getElementById('float-search').style.display = 'none';
+}
+
+function appendart(){
+    document.getElementById('btn_more_art').style.display = 'none';
+    statuswait = true;
+    showwait();
+    
+    var startpage = document.getElementById('artpage').value;
+    
+    var div1='', div2='', imgfeature='', a_card='', uls='', slug = '', blogtittle='', blogexcerpt='', review='';
+    
+    
+    a_card = '<a href="' + base_url + 'artikel/read/' + slug + '"  class="artikel-link"><div class="card-article-img"><img src="' + imgfeature + '"></div></a>';
+    
+    div2 = '<div class="card-article-content"><a href="' + base_url + 'artikel/read/' + slug + '" class="artikel-link"><div class="card-article-tittle pd-b-20 fw-500 fs-22">' + blogtittle + '</div><div class="card-article-body fs-14 hg-75">' + blogexcerpt + '</div></a><div class="tags">'  + uls + '</div><div class="card-article-footer"><div class="card-footer-komparase fs-10"><img src="'+ base_url + 'assets/images/comment.png"><div class="comment-number">' + review + '</div></div></div></div>';
+    
+    div1 = '<div class="card-article border-1-brown">' + a_card + div2 + '</div>';
+    
+    $.ajax({
+        type: 'POST',
+        url: base_url + 'ajaxrequest/get_artikel_more/' + home_artikel_offset,
+        dataType: 'json'
+    }).done(function (result_save) {
+        console.log(home_artikel_offset);
+        
+        if (result_save.length > 0) {
+            home_artikel_offset += 5;
+            for (var i=0; i <= (result_save.length)-1; i++){
+                    var tags = result_save[i]['tags'];
+                    var tag = '';
+                    var arrtag = tags.split(',');
+
+                    for (var j = 0; j <= (arrtag.length-1); j++){
+                        tag += '<li>' + arrtag[j] + '</li>'
+                    }
+
+                    uls = '<ul>' + tag + '</ul>';
+
+                    a_card = '<a href="' + base_url + 'artikel/read/' + result_save[i]['slug'] + '"  class="artikel-link"><div class="card-article-img"><img src="' + showimage(result_save[i]['imagefeature']) + '"></div></a>';
+
+                    div2 = '<div class="card-article-content"><a href="' + base_url + 'artikel/read/' + result_save[i]['slug'] + '" class="artikel-link"><div class="card-article-tittle pd-b-20 fw-500 fs-22">' + result_save[i]['blogtittle'] + '</div><div class="card-article-body fs-14 hg-75">' + result_save[i]['blogexcerpt'] + '</div></a><div class="tags">'  + uls + '</div><div class="card-article-footer"><div class="card-footer-komparase fs-10"><img src="'+ base_url + 'assets/images/comment.png"><div class="comment-number">' + result_save[i]['review'] + '</div></div></div></div>';
+
+                    div1 = '<div class="card-article border-1-brown">' + a_card + div2 + '</div>';
+
+                    document.getElementById("art-cards").insertAdjacentHTML("afterend", 
+                        div1);         
+                }
+            document.getElementById('btn_more_art').style.display = 'block';
+        }else{
+            document.getElementById('btn_more_art').style.display = 'none';
+        }
+        
+        
+        statuswait = false;
+        showwait(false);
+    });
+    
+    function showimage(imgs){
+        if (imgs == '' || imgs == null) {
+            return base_url + 'assets/artikel/default_thumb.jpg';
+        }else{
+            return imgs;
+        }
+    }
+    
+    function showwait(sts=true){
+          if (sts) {
+              animations.style.display = 'block';
+              TweenLite.to(bar1, 0, {scaleY:0, ease: Sine.easeOut});
+              TweenLite.to(bar2, 0, {scaleY:0, ease: Sine.easeOut});
+              TweenLite.to(bar3, 0, {scaleY:0, ease: Sine.easeOut});
+
+              anim_raise();    
+          }else{
+              animations.style.display = 'none';
+          }
+      }
+        
+      function anim_raise(){
+          if (statuswait) {
+              TweenLite.to(bar1, 0.3, {scaleY:1, transformOrigin:"bottom", ease: Expo.easeOut, delay:0.1});
+              TweenLite.to(bar2, 0.3, {scaleY:1, transformOrigin:"bottom", ease: Expo.easeOut, delay:0.2});
+              TweenLite.to(bar3, 0.3, {scaleY:1, transformOrigin:"bottom", ease: Expo.easeOut, delay:0.3, onComplete:anim_fall});    
+          }
+      }
+        
+      function anim_fall(){
+          if (statuswait) {
+              TweenLite.to(bar1, 0.3, {scaleY:0, transformOrigin:"bottom", ease: Expo.easeIn, delay:0.1});
+              TweenLite.to(bar2, 0.3, {scaleY:0, transformOrigin:"bottom", ease: Expo.easeIn, delay:0.2});
+              TweenLite.to(bar3, 0.3, {scaleY:0, transformOrigin:"bottom", ease: Expo.easeIn, delay:0.3, onComplete:anim_raise});    
+          }
+      } 
+    
+    
+    
+    
 }
 
 //console.log('ver 1.0')

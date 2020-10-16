@@ -33,7 +33,7 @@
   </head>
    
   <body class="bg-light">
-
+    
     <div class="container">
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="https://komparase.com/assets/images/mainlogo.png" height="72">

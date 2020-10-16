@@ -297,6 +297,22 @@ Orange : #ea5455
     /* margin-bottom: 18px; */
 }
 
+.more-view {
+    position: relative;
+    left: 266px;
+    bottom: 0px;
+    background-color: #2d4059;
+    color: #c7b198;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    padding: 13px 50px 13px 50px;
+    font-size: 15px;
+    font-weight: 500;
+    
+}
+
+
+
 .rekomp-button {
     position: relative;
     left: 403px;
@@ -840,5 +856,36 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 .table-spec-font {
     font-family: 'Kumbh Sans', sans-serif;
+}
+
+
+#animations{
+    left: 322px;
+    position: relative;
+    display: none;
+}
+    
+#bar1{
+    width: 20px;
+    height: 44px;
+    background-color: #c7b198;
+    left: 0px;
+    position: absolute;
+}
+
+#bar2{
+    width: 20px;
+    height: 44px;
+    background-color: #2d4059;
+    left: 26px;
+    position: absolute;
+}
+
+#bar3{
+    width: 20px;
+    height: 44px;
+    background-color: #ea5455;
+    left: 53px;
+    position: absolute;
 }
 

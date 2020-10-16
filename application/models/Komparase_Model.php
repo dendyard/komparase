@@ -85,9 +85,6 @@ WHERE blogcategory='komparasi-" . $kat . "' AND statusapprove=1  order by intime
 ON a.id = b.idproduk
 WHERE blogcategory='blog-" . $kat . "'" . ($slug <> '' ? " AND slug !='" . $slug . "' " : "") . ($tags <> '' ? " AND (" . $tags . ")" : "") . " AND statusapprove=1  order by intime DESC LIMIT " . $limit;   
         
-//              echo $sql0;
-//      exit();
-        
         $query0 = $this->db->query($sql0);
         $result = $query0->result_array();
         return $result;    
@@ -155,6 +152,19 @@ WHERE idproduk = " . $prodid . " AND commenttype='" . $reviewtype . "' AND b.rol
         $query0 = $this->db->query($sql0);
         $result = $query0->result_array();
         return $result; 
+    }
+    
+    
+    public function get_artikel_more($offset='5', $kat, $slug='', $tags='', $limit = '5'){
+        $sql0 = "SELECT *, 
+(CASE WHEN (b.review >= 0) THEN b.review
+      ELSE '0' END) as review FROM blogpost a LEFT JOIN user_review_blog_total b
+ON a.id = b.idproduk
+WHERE blogcategory='blog-" . $kat . "'" . ($slug <> '' ? " AND slug !='" . $slug . "' " : "") . ($tags <> '' ? " AND (" . $tags . ")" : "") . " AND statusapprove=1  order by intime DESC LIMIT " . $limit . " OFFSET " . $offset;   
+        
+        $query0 = $this->db->query($sql0);
+        $result = $query0->result_array();
+        return $result;    
     }
     
     
