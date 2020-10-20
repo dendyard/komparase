@@ -1,7 +1,7 @@
 
 var where = window.location.host;
 var pathArray, mypage, home_artikel_offset = 5;
-var statuswait = false, smlst;   
+var statuswait = false;   
 
   if(where == 'localhost'){
       var base_url = window.location.protocol + "//" + window.location.host + "/komparase/";
@@ -37,44 +37,7 @@ function searchOnBlur(tb_container){
     
 }
 
-function searchOnList(tbox_name, tb_name, rekom=false) { 
-    var tb_container, input, filter, table, tr, td, i, txtValue, strsearch, srcphone;
-    
-    input = document.getElementById(tbox_name);
-    filter = input.value.toUpperCase();
-    table = document.getElementById(tb_name);
-    
-    switch(tb_name){
-      case 'stable-1':
-          tb_container = 'tbsrc1-container';
-          phoneid1 = '';
-          srcphone = 'searchPhone1'
-          break;
-      case 'stable-2':
-          tb_container = 'tbsrc2-container';
-          phoneid2 = '';
-          srcphone = 'searchPhone2'
-          break;
-      case 'stable-3':
-          tb_container = 'tbsrc3-container';
-          phoneid3 = '';
-          srcphone = 'searchPhone3'
-          break;
-  }
-    strsearch = input.value;
-    if (strsearch.trim() != '') {
-        if (strsearch.length > 1){
-            var a = smlst;
-            var res = alasql('SELECT * FROM ? AS t WHERE productname LIKE "%' + filter + '%"',[a]);
-            document.getElementById(tb_container).style.display = 'block';
-            insertToTable(tb_name, srcphone, res);    
-        }
-    }else{
-        document.getElementById(tb_container).style.display = 'none';
-    }
-}
-
-function searchOnList2(tbox_name, tb_name, rekom=false) {
+function searchOnList(tbox_name, tb_name, rekom=false) {
   var tb_container, input, filter, table, tr, td, i, txtValue;
     
   input = document.getElementById(tbox_name);
@@ -89,10 +52,12 @@ function searchOnList2(tbox_name, tb_name, rekom=false) {
           break;
       case 'stable-2':
           tb_container = 'tbsrc2-container';
+          
           phoneid2 = '';
           break;
       case 'stable-3':
           tb_container = 'tbsrc3-container';
+          
           phoneid3 = '';
           break;
   }
@@ -168,23 +133,22 @@ function get_smartphone_list2(){
         url: base_url + 'komparase/get_product_list/5',
         dataType: 'json',
     }).done(function (smlist) {
-        smlst = smlist;
+
+        insertToTable('stable-1', 'searchPhone1', smlist);
+        insertToTable('stable-2', 'searchPhone2', smlist);
+        insertToTable('stable-3', 'searchPhone3', smlist);
+        
     });
 }
 
 
 function insertToTable(tbltarget,txttarget,datatarget){
     var tablecontainer, listrow='';
-    tablecontainer = document.getElementById(tbltarget); 
-    tablecontainer.innerHTML = '';
-    if (datatarget.length > 0) {
-        for (var i = 0; i<datatarget.length; i++ ){
-            tablecontainer.innerHTML += "<tr onclick='pickPhone(`" + txttarget + "`,`" + datatarget[i].productname + "`,`" + datatarget[i].imagefeature + "`,`" + datatarget[i].id + "`)'><td class='img-cell-searchbox'><img src='" + datatarget[i].imagefeature + "' class='searchOnList-icon'></td><td>" + datatarget[i].productname + "</td></tr>";
-        }    
-    }else{
-        tablecontainer.innerHTML += "<tr><td>Tidak menemukan data</td></tr>";
+        
+    for (var i = 0; i<datatarget.length; i++ ){
+       tablecontainer = document.getElementById(tbltarget); 
+       tablecontainer.innerHTML += "<tr onclick='pickPhone(`" + txttarget + "`,`" + datatarget[i].productname + "`,`" + datatarget[i].imagefeature + "`,`" + datatarget[i].id + "`)'><td class='img-cell-searchbox'><img src='" + datatarget[i].imagefeature + "' class='searchOnList-icon'></td><td>" + datatarget[i].productname + "</td></tr>";
     }
-    
 }
 
 function bandingkan_page(){

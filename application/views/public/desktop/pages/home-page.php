@@ -50,6 +50,8 @@
     <div id='tbsrc3-container'>
         <table id="stable-3"></table>
     </div>
+    
+        
     <div class="komparasi-tabs komparasi-tab-shadows">
         <div class="col-tab">
             <div class="col-kom-tittle">Bandingkan dengan :</div>
