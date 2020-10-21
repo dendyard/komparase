@@ -59,7 +59,7 @@ WHERE blogcategory='" . $kat . "' AND choosenproduct=1  order by intime DESC LIM
             $kat = '5';
         }
         
-        $sql0 = "SELECT id, productname, imagefeature, slug FROM masterproduct WHERE idcategory=" . $kat . " ORDER BY id DESC LIMIT 4";   
+        $sql0 = "SELECT id, productname, imagefeature, slug FROM masterproduct WHERE idcategory=" . $kat . " ORDER BY rilisdate DESC LIMIT 4";   
         
 //      echo $sql0;
 //      exit();
@@ -270,7 +270,7 @@ WHERE blogcategory='blog-" . $kat . "'" . ($slug <> '' ? " AND slug !='" . $slug
     }
     
     public function getImgFeature(){
-        $sql0 = "SELECT id,imagefeature FROM masterproduct";   
+        $sql0 = "SELECT id,imagefeature FROM masterproduct where imagefeature not like 'https://komparase.com/%'";   
 
         $query0 = $this->db->query($sql0);
         $result = $query0->result_array();
