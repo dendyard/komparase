@@ -21,6 +21,16 @@
     
 <link href="<?=base_url()?>assets/css/main.css?v=4" rel="stylesheet">
 <link href="<?=base_url()?>assets/css/general.css?v=4" rel="stylesheet">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJKVTY5DS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJKVTY5DS');
+</script>
     
     
 </head>
