@@ -28,7 +28,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
     
-<link href="<?=base_url()?>assets/css/main.css?v=4" rel="stylesheet">
+<link href="<?=base_url()?>assets/css/main.css?v=6" rel="stylesheet">
 <link href="<?=base_url()?>assets/css/general.css?v=4" rel="stylesheet">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->

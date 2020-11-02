@@ -12,12 +12,15 @@
     
 
     <div style="float:left;margin-right:20px;">  
-    <h1 class="banner-h1">Discover more than 7 million comparisons</h1>
-    <h2 class="banner-h2">Smartphone, Automotive, Cities, Books, Travels, Movies and many more...</h2>
+    <div class="kom-ads-970x250">
+        <img class="border-1-grey" src="<?=base_url()?>assets/ads/970x250.jpg">
+    </div>
     
+<!--
     <div class="tab" id='tab-smartphone'>Smartphone</div>
     <div class="tab tab-blur" id='tab-auto' 
          onclick="bandingkan_single(<?=$mainData['id']?>)">Bandingkan</div>
+-->
     
     
     <div class="komparasi-tabs">
