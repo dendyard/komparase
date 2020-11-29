@@ -259,6 +259,18 @@ WHERE blogcategory='blog-" . $kat . "'" . ($slug <> '' ? " AND slug !='" . $slug
         
     }
     
+    public function digivote($data, $idpro=''){
+        
+        $query0 = $this->db->insert('digitalvote', $data);
+        if ($query0){
+            $result = 'done';
+        }else{
+            $result = 'failed';
+        }
+        return $result;
+        
+    }
+    
     public function counter_product_read($id){
         $sql = "UPDATE masterproduct SET readcounter=readcounter+1 WHERE id=" . $id;
         $this->db->query($sql);

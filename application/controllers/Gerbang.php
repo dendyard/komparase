@@ -145,5 +145,28 @@ class Gerbang extends CI_Controller {
         
     }
     
+    public function digitalvote(){
+        
+        header("Access-Control-Allow-Origin: *");
+        //echo $this->input->post('choosenproduct');
+        
+        //die();
+        switch ($proctype){
+            case "add":
+                
+                $data = array(
+                    'nama' => $this->input->post('nama'),
+                    'norumah' => $this->input->post('rumah'),
+                    'pilihan' => $this->input->post('vote'),
+                    'intime' => date("Y-m-d H:i:s")
+                );
+                $response['status'] = $this->Komparase_Model->digivote($data);
+                break;
+        }
+        
+        echo json_encode($response);
+        
+    }
+    
         
 }
