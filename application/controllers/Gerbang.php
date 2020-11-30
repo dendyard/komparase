@@ -153,17 +153,21 @@ class Gerbang extends CI_Controller {
         $rumah = $this->input->post('norumah');
         $pilihan = $this->input->post('pilihan');
         
-//        $name = 'dendy';
-//        $rumah = 'c9 no 6';
-//        $pilihan = 'Bpk. Yayang';
-//        
         $data = array(
             'nama' => $name,
             'norumah' => $rumah,
+            'intime' => date("Y-m-d H:i:s")
+        );
+        
+        $data_log = array(
             'pilihan' => $pilihan,
             'intime' => date("Y-m-d H:i:s")
         );
+        
+        
         $response['status'] = $this->Komparase_Model->digivote($data);
+        $response['status'] = $this->Komparase_Model->digivote_log($data_log);
+        
 
         echo json_encode($response);
         
