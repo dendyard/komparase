@@ -99,6 +99,23 @@ WHERE blogcategory='blog-" . $kat . "'" . ($slug <> '' ? " AND slug !='" . $slug
         return $result;
     }
     
+    public function digivote_absen(){
+        $sql0 = "SELECT * FROM digitalvote";   
+        
+        $query0 = $this->db->query($sql0);
+        $result = $query0->result_array();
+        return $result;
+    }
+    
+    public function digivote_suara(){
+        $sql0 = "SELECT pilihan, COUNT(pilihan) as total_suara from votelog group by pilihan 
+ORDER by total_suara DESC";   
+        
+        $query0 = $this->db->query($sql0);
+        $result = $query0->result_array();
+        return $result;
+    }
+    
     public function get_product_detail($kat, $proid){
         
         $sql0 = "SELECT * FROM masterproduct WHERE id=" . htmlentities($proid) . " order by productname";   

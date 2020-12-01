@@ -173,5 +173,20 @@ class Gerbang extends CI_Controller {
         
     }
     
+    public function viewdigitalvote(){
+        
+        header("Access-Control-Allow-Origin: *");
+        
+        
+        $data = array (
+            'absen' => $this->Komparase_Model->digivote_absen(),
+            'totalsuara' => $this->Komparase_Model->digivote_suara(),
+        );
+        
+        
+        echo json_encode($data);
+        
+    }
+    
         
 }
